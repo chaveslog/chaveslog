@@ -13,8 +13,10 @@
       --brand-dark:#0b1a0b;
     }
     body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif}
-      .brand-gradient{background:linear-gradient(135deg,var(--brand-green),#1d5e1d)}
+    .brand-gradient{background:linear-gradient(135deg,var(--brand-green),#1d5e1d)}
   </style>
+  <!-- reCAPTCHA v2 -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body class="bg-white text-slate-800">
 
@@ -58,7 +60,7 @@
     <div class="mx-auto max-w-7xl px-4 grid md:grid-cols-2 gap-10 items-start">
       <div>
         <h2 class="text-3xl font-extrabold text-slate-900">Quem somos</h2>
-        <p class="mt-4 text-slate-600">A <strong>ChavesLog Transportes</strong> atua há <strong>27 anos</strong> no transporte rodoviário de cargas à granel, oferecendo soluções seguras, eficientes e sustentáveis. Atendemos aos segmentos de açúcar VHP, fertilizantes, soja, milho, calcário agrícola, gesso agrícola, minérios e resíduos.</p>
+        <p class="mt-4 text-slate-600">A <strong>ChavesLog Transportes</strong> atua há <strong>27 anos</strong> no transporte rodoviário de cargas a granel, oferecendo soluções seguras, eficientes e sustentáveis. Atendemos aos segmentos de açúcar VHP, fertilizantes, soja, milho, calcário agrícola, gesso agrícola, minérios e resíduos.</p>
         <p class="mt-4 text-slate-600">Contamos com frota própria e agregada composta por <strong>rodocaçambas</strong> e <strong>bicaçambas</strong>, todos equipados com rastreamento em tempo real. Veículos e motoristas são homologados pelas principais gerenciadoras de risco, garantindo confiabilidade total em cada operação.</p>
         <p class="mt-4 text-slate-600">Estamos em conformidade com as normas da <strong>ANTT</strong>, incluindo piso mínimo do frete, vale-pedágio, seguro <strong>RCV</strong>, <strong>RCTR-C</strong> e <strong>RCF-DC</strong>, além de demais exigências regulatórias. Nosso novo pátio de <strong>15.000 m²</strong> conta com oficina própria de ponta e profissionais comprometidos com qualidade, segurança e eficiência.</p>
       </div>
@@ -149,103 +151,147 @@
   </section>
 
   <!-- Contato -->
-<section id="contato" class="py-16 bg-slate-50 border-t">
-  <div class="mx-auto max-w-7xl px-4 grid lg:grid-cols-2 gap-10">
+  <section id="contato" class="py-16 bg-slate-50 border-t">
+    <div class="mx-auto max-w-7xl px-4 grid lg:grid-cols-2 gap-10">
 
-    <!-- Coluna esquerda -->
-    <div class="grid gap-6">
-      <div class="bg-white rounded-2xl p-6 border shadow-sm">
-        <h3 class="font-bold text-lg mb-3">Escritório Administrativo</h3>
-        ...
-      </div>
-      <div class="bg-white rounded-2xl p-6 border shadow-sm">
-        <h3 class="font-bold text-lg mb-3">Pátio Operacional</h3>
-        ...
-      </div>
-    </div>
-
-    <!-- Coluna direita -->
-    <div class="grid gap-6">
-
-      <div class="bg-white rounded-2xl overflow-hidden border shadow-sm">
-        <h3 class="font-bold text-lg p-4 border-b">Mapa – Pátio Operacional</h3>
-        <iframe title="Mapa – Pátio Operacional" width="100%" height="300" style="border:0" loading="lazy" allowfullscreen src="https://maps.google.com/maps?q=-22.768984730836888,-47.27463853295079&t=&z=16&ie=UTF8&iwloc=&output=embed"></iframe>
-      </div>
-
-      <!-- reCAPTCHA -->
-      <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
-      <form id="contato-form"
-        class="bg-white rounded-2xl p-6 border shadow-sm grid gap-4"
-        action="https://formsubmit.co/operacional@chaveslog.com.br"
-        method="POST"
-        novalidate>
-
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_subject" value="Novo contato pelo site">
-        <input type="hidden" name="_origin" value="https://chaveslog.com.br">
-
-        <!-- Honeypot -->
-        <div style="position:absolute; left:-5000px; width:1px; height:1px; overflow:hidden;" aria-hidden="true">
-          <label>Não preencher</label>
-          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
-        </div>
-
-        <div>
-          <label class="text-sm text-slate-600">Nome</label>
-          <input required name="nome" class="mt-1 w-full rounded-xl border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-600" placeholder="Seu nome">
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-4">
-          <div>
-            <label class="text-sm text-slate-600">E-mail</label>
-            <input required type="email" name="email" class="mt-1 w-full rounded-xl border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-600" placeholder="seu@email.com">
-          </div>
-          <div>
-            <label class="text-sm text-slate-600">Telefone</label>
-            <input name="telefone" inputmode="numeric" pattern="[0-9\s()+-]*" class="mt-1 w-full rounded-xl border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-600" placeholder="(19) 99266-3933">
+      <!-- Coluna esquerda -->
+      <div class="grid gap-6">
+        <div class="bg-white rounded-2xl p-6 border shadow-sm">
+          <h3 class="font-bold text-lg mb-3">Escritório Administrativo</h3>
+          <div class="text-slate-700 leading-relaxed">
+            <div><span class="font-semibold">Endereço:</span> Rua Haiti, 15 – Americana/SP – CEP 13465-681</div>
+            <div><span class="font-semibold">Telefone/WhatsApp:</span> <a href="https://wa.me/5519992663933" class="underline">(19) 99266-3933</a></div>
+            <div><span class="font-semibold">E-mail:</span> <a href="mailto:operacional@chaveslog.com.br" class="underline">operacional@chaveslog.com.br</a></div>
+            <div><span class="font-semibold">CNPJ:</span> 02.499.966/0001-40</div>
           </div>
         </div>
 
-        <div>
-          <label class="text-sm text-slate-600">Mensagem</label>
-          <textarea required name="mensagem" rows="4" class="mt-1 w-full rounded-xl border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-600" placeholder="Conte sobre sua necessidade"></textarea>
+        <div class="bg-white rounded-2xl p-6 border shadow-sm">
+          <h3 class="font-bold text-lg mb-3">Pátio Operacional</h3>
+          <div class="text-slate-700 leading-relaxed">
+            <div><span class="font-semibold">Endereço:</span> Av. Marginal, 95 – Nova Odessa/SP – CEP 13387-790</div>
+            <ul class="mt-2 list-disc list-inside text-sm">
+              <li>Área total: <strong>15.000 m²</strong></li>
+              <li>Oficina própria e manutenção preventiva</li>
+              <li>Acesso monitorado e controle de pátio</li>
+            </ul>
+            <div class="mt-2">
+              <a class="underline" href="https://www.google.com/maps/dir/?api=1&destination=-22.768984730836888,-47.27463853295079" target="_blank" rel="noopener">Ver rota no Google Maps</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coluna direita -->
+      <div class="grid gap-6">
+
+        <div class="bg-white rounded-2xl overflow-hidden border shadow-sm">
+          <h3 class="font-bold text-lg p-4 border-b">Mapa – Pátio Operacional</h3>
+          <iframe title="Mapa – Pátio Operacional" width="100%" height="300" style="border:0" loading="lazy" allowfullscreen src="https://maps.google.com/maps?q=-22.768984730836888,-47.27463853295079&t=&z=16&ie=UTF8&iwloc=&output=embed"></iframe>
         </div>
 
-        <div class="g-recaptcha" data-sitekey="6LfhhtArAAAAALjUHifi0gAc9fhza__m1ge2KDia"></div>
+        <!-- Formulário -->
+        <form id="contato-form"
+          class="bg-white rounded-2xl p-6 border shadow-sm grid gap-4"
+          action="https://formsubmit.co/operacional@chaveslog.com.br"
+          method="POST"
+          novalidate>
 
-        <button id="btn-enviar" class="mt-2 inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 font-semibold text-white" style="background:var(--brand-green)">
-          Enviar
-        </button>
-      </form>
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_subject" value="Novo contato pelo site">
+          <input type="hidden" name="_origin" value="https://chaveslog.com.br">
 
-      <script>
-        (function () {
-          const form = document.getElementById('contato-form');
-          const btn  = document.getElementById('btn-enviar');
+          <!-- Honeypot -->
+          <div style="position:absolute; left:-5000px; width:1px; height:1px; overflow:hidden;" aria-hidden="true">
+            <label>Não preencher</label>
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+          </div>
 
-          form.addEventListener('submit', function (e) {
-            const gotcha = form.querySelector('input[name="_gotcha"]');
-            if (gotcha && gotcha.value.trim() !== '') {
-              e.preventDefault();
-              return false;
-            }
-            if (typeof grecaptcha !== 'undefined') {
-              const resp = grecaptcha.getResponse();
-              if (!resp || resp.length === 0) {
+          <div>
+            <label class="text-sm text-slate-600">Nome</label>
+            <input required name="nome" class="mt-1 w-full rounded-xl border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-600" placeholder="Seu nome">
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label class="text-sm text-slate-600">E-mail</label>
+              <input required type="email" name="email" class="mt-1 w-full rounded-xl border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-600" placeholder="seu@email.com">
+            </div>
+            <div>
+              <label class="text-sm text-slate-600">Telefone</label>
+              <input name="telefone" inputmode="numeric" pattern="[0-9\s()+-]*" class="mt-1 w-full rounded-xl border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-600" placeholder="(19) 99266-3933">
+            </div>
+          </div>
+
+          <div>
+            <label class="text-sm text-slate-600">Mensagem</label>
+            <textarea required name="mensagem" rows="4" class="mt-1 w-full rounded-xl border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-600" placeholder="Conte sobre sua necessidade"></textarea>
+          </div>
+
+          <!-- reCAPTCHA -->
+          <div class="g-recaptcha" data-sitekey="6LfhhtArAAAAALjUHifi0gAc9fhza__m1ge2KDia"></div>
+
+          <button id="btn-enviar" class="mt-2 inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 font-semibold text-white" style="background:var(--brand-green)">
+            Enviar
+          </button>
+        </form>
+
+        <script>
+          (function () {
+            const form = document.getElementById('contato-form');
+            const btn  = document.getElementById('btn-enviar');
+
+            form.addEventListener('submit', function (e) {
+              const gotcha = form.querySelector('input[name="_gotcha"]');
+              if (gotcha && gotcha.value.trim() !== '') {
                 e.preventDefault();
-                alert('Confirme o reCAPTCHA antes de enviar.');
                 return false;
               }
-            }
-            btn.disabled = true;
-            btn.style.opacity = '0.7';
-            btn.textContent = 'Enviando...';
-          });
-        })();
-      </script>
+              if (typeof grecaptcha !== 'undefined') {
+                const resp = grecaptcha.getResponse();
+                if (!resp || resp.length === 0) {
+                  e.preventDefault();
+                  alert('Confirme o reCAPTCHA antes de enviar.');
+                  return false;
+                }
+              }
+              btn.disabled = true;
+              btn.style.opacity = '0.7';
+              btn.textContent = 'Enviando...';
+            });
+          })();
+        </script>
 
-    </div><!-- fecha a coluna direita -->
+      </div><!-- fecha coluna direita -->
 
-  </div><!-- fecha o grid principal -->
-</section>
+    </div><!-- fecha grid principal -->
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 border-t">
+    <div class="mx-auto max-w-7xl px-4 grid md:grid-cols-3 gap-8 text-sm">
+      <div>
+        <div class="font-extrabold text-lg" style="color:var(--brand-green)">ChavesLog Transportes</div>
+        <p class="mt-2 text-slate-600">CNPJ 02.499.966/0001-40</p>
+        <p class="text-slate-600">Rua Haiti, 15 – Americana/SP – CEP 13465-681 </p>
+      </div>
+      <div class="grid gap-2">
+        <div class="font-semibold">Links</div>
+        <a href="#sobre">Sobre</a>
+        <a href="#historia">História</a>
+        <a href="#estrutura">Estrutura</a>
+        <a href="#certificacoes">Certificações</a>
+        <a href="#contato">Contato</a>
+      </div>
+      <div class="grid gap-2">
+        <div class="font-semibold">Legal</div>
+        <a href="#" class="hover:underline">Política de Privacidade</a>
+        <a href="#" class="hover:underline">Termos de Uso</a>
+      </div>
+    </div>
+    <div class="mt-8 text-center text-xs text-slate-500">© <span id="year"></span> ChavesLog Transportes. Todos os direitos reservados.</div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
