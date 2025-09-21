@@ -181,6 +181,80 @@
           <h3 class="font-bold text-lg p-4 border-b">Mapa – Pátio Operacional</h3>
           <iframe title="Mapa – Pátio Operacional" width="100%" height="300" style="border:0" loading="lazy" allowfullscreen src="https://maps.google.com/maps?q=-22.768984730836888,-47.27463853295079&t=&z=16&ie=UTF8&iwloc=&output=embed"></iframe>
         </div>
+      <!-- reCAPTCHA -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<form id="contato"
+  class="bg-white rounded-2xl p-6 border shadow-sm grid gap-4"
+  action="https://formsubmit.co/operacional@chaveslog.com.br"
+  method="POST"
+  novalidate>
+
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_subject" value="Novo contato pelo site">
+  <input type="hidden" name="_origin" value="https://chaveslog.com.br">
+
+  <!-- Honeypot -->
+  <div style="position:absolute; left:-5000px; width:1px; height:1px; overflow:hidden;" aria-hidden="true">
+    <label>Não preencher</label>
+    <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+  </div>
+
+  <div>
+    <label class="text-sm text-slate-600">Nome</label>
+    <input required name="nome" class="mt-1 w-full rounded-xl border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-600" placeholder="Seu nome">
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-4">
+    <div>
+      <label class="text-sm text-slate-600">E-mail</label>
+      <input required type="email" name="email" class="mt-1 w-full rounded-xl border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-600" placeholder="seu@email.com">
+    </div>
+    <div>
+      <label class="text-sm text-slate-600">Telefone</label>
+      <input name="telefone" inputmode="numeric" pattern="[0-9\s()+-]*" class="mt-1 w-full rounded-xl border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-600" placeholder="(19) 99266-3933">
+    </div>
+  </div>
+
+  <div>
+    <label class="text-sm text-slate-600">Mensagem</label>
+    <textarea required name="mensagem" rows="4" class="mt-1 w-full rounded-xl border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-600" placeholder="Conte sobre sua necessidade"></textarea>
+  </div>
+
+  <!-- reCAPTCHA -->
+  <div class="g-recaptcha" data-sitekey="6LfhhtArAAAAALjUHifi0gAc9fhza__m1ge2KDia"></div>
+
+  <button id="btn-enviar" class="mt-2 inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 font-semibold text-white" style="background:var(--brand-green)">
+    Enviar
+  </button>
+</form>
+
+<script>
+  (function () {
+    const form = document.getElementById('contato');
+    const btn  = document.getElementById('btn-enviar');
+
+    form.addEventListener('submit', function (e) {
+      const gotcha = form.querySelector('input[name="_gotcha"]');
+      if (gotcha && gotcha.value.trim() !== '') {
+        e.preventDefault();
+        return false;
+      }
+      if (typeof grecaptcha !== 'undefined') {
+        const resp = grecaptcha.getResponse();
+        if (!resp || resp.length === 0) {
+          e.preventDefault();
+          alert('Confirme o reCAPTCHA antes de enviar.');
+          return false;
+        }
+      }
+      btn.disabled = true;
+      btn.style.opacity = '0.7';
+      btn.textContent = 'Enviando...';
+    });
+  })();
+</script>
+        
         <form class="bg-white rounded-2xl p-6 border shadow-sm grid gap-4" action="https://formsubmit.co/operacional@chaveslog.com.br" method="POST">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
