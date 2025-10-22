@@ -1,16 +1,51 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Mensagem enviada com sucesso</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.4/dist/tailwind.min.css" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mensagem enviada com sucesso | ChavesLog Transportes</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --brand-green: #228B22;
+      --brand-yellow: #FFC400;
+      --brand-dark: #0b1a0b;
+    }
+    body {
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+      background: linear-gradient(135deg, #f8fafc, #e8f5e9);
+    }
+  </style>
 </head>
-<body class="bg-emerald-50 text-center flex flex-col items-center justify-center min-h-screen text-slate-800">
-  <div class="bg-white p-8 rounded-2xl shadow-md">
-    <h1 class="text-2xl font-bold text-emerald-700">Mensagem enviada com sucesso!</h1>
-    <p class="mt-3 text-slate-600">Agradecemos o seu contato. Em breve entraremos em contato com você.</p>
-    <a href="/" class="inline-block mt-6 bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700">Voltar para o site</a>
+
+<body class="min-h-screen flex flex-col items-center justify-center text-slate-800 px-4">
+
+  <div class="max-w-lg text-center bg-white shadow-lg rounded-3xl p-10 border border-slate-200">
+    <img src="/img/logo-chaveslog-oficial.png" alt="ChavesLog Transportes" class="mx-auto h-12 mb-4">
+
+    <h1 class="text-3xl font-extrabold text-green-700">Mensagem enviada com sucesso!</h1>
+    <p class="mt-4 text-slate-600 leading-relaxed">
+      Agradecemos o seu contato. Nossa equipe recebeu sua mensagem e retornará o mais breve possível.
+    </p>
+
+    <div class="mt-8">
+      <a href="/" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl font-semibold text-white hover:opacity-90"
+         style="background: var(--brand-green);">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Voltar para o site
+      </a>
+    </div>
   </div>
+
+  <footer class="mt-10 text-xs text-slate-500">
+    © <span id="year"></span> ChavesLog Transportes. Todos os direitos reservados.
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
 </body>
 </html>
