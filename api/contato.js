@@ -1,66 +1,35 @@
-// /api/contato.js
 export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    res.setHeader('Allow', 'POST');
-    return res.status(405).send('Method Not Allowed');
-  }
+  if (req.method !== 'POST') return res.status(405).send('Método não permitido');
 
-  // Lê o corpo bruto (x-www-form-urlencoded)
-  const rawBody = await new Promise((resolve) => {
-    let data = '';
-    req.on('data', (chunk) => (data += chunk));
-    req.on('end', () => resolve(data));
-  });
+  const { nome, email, telefone, mensagem, 'g-recaptcha-response': token } = req.body;
+  if (!token) return res.status(400).send('Token do reCAPTCHA ausente.');
 
-  const params = new URLSearchParams(rawBody);
-  const token = params.get('g-recaptcha-response');
+  const secretKey = process.env.RECAPTCHA_SECRET;
 
-  if (!token) {
-    return res.status(400).send('Erro: reCAPTCHA não encontrado.');
-  }
-
-  // Verifica token no Google
-  const verifyResp = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+  // Validação do reCAPTCHA
+  const verify = await fetch(`https://www.google.com/recaptcha/api/siteverify`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({
-      secret: process.env.RECAPTCHA_SECRET,
-      response: token,
-      remoteip: req.headers['x-forwarded-for'] || req.socket.remoteAddress || ''
-    })
+    body: `secret=${secretKey}&response=${token}`
   });
 
-  const verifyJson = await verifyResp.json();
-  const ok = verifyJson && verifyJson.success === true;
-
-  // (Opcional) trava por hostname
-  if (ok && verifyJson.hostname) {
-    const permitido = ['chaveslog.com.br', 'www.chaveslog.com.br'];
-    if (!permitido.includes(verifyJson.hostname)) {
-      return res.status(403).send('Erro: host inválido na verificação.');
-    }
+  const verifyJson = await verify.json();
+  if (!verifyJson.success) {
+    console.log('Erro reCAPTCHA:', verifyJson);
+    return res.status(403).send(`Erro: reCAPTCHA inválido. ${JSON.stringify(verifyJson)}`);
   }
 
-  if (!ok) {
-  return res
-    .status(403)
-    .send('Erro: reCAPTCHA inválido. ' + JSON.stringify(verifyJson));
-}
-
-  // Encaminha para o Getform com o mesmo corpo
-  const fwd = await fetch(process.env.GETFORM_ENDPOINT, {
+  // Envia ao Getform
+  const formEndpoint = process.env.GETFORM_ENDPOINT;
+  const send = await fetch(formEndpoint, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: rawBody
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ nome, email, telefone, mensagem })
   });
 
-  if (!fwd.ok) {
-    const txt = await fwd.text().catch(() => '');
-    return res.status(502).send('Falha ao encaminhar para Getform. ' + txt);
+  if (send.ok) {
+    res.redirect(302, '/obrigado.html');
+  } else {
+    res.status(500).send('Erro ao enviar formulário.');
   }
-
-  // Redireciona para página de obrigado (crie /obrigado.html se quiser)
-  res.statusCode = 302;
-  res.setHeader('Location', '/obrigado.html');
-  return res.end();
 }
