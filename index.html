@@ -190,7 +190,7 @@
           <iframe title="Mapa – Pátio Operacional" width="100%" height="300" style="border:0" loading="lazy" allowfullscreen src="https://maps.google.com/maps?q=-22.768984730836888,-47.27463853295079&t=&z=16&ie=UTF8&iwloc=&output=embed"></iframe>
         </div>
 
-        <!-- Formulário -->
+<!-- FORMULÁRIO -->
 <form id="contato-form"
   class="bg-white rounded-2xl p-6 border shadow-sm grid gap-4"
   action="/api/contato"
@@ -225,7 +225,9 @@
   </div>
 
   <!-- reCAPTCHA v2 -->
+  <!-- ESTE É O CAMPO QUE PRECISA EXISTIR -->
   <input type="hidden" id="recaptcha-token" name="g-recaptcha-response" />
+
   <div class="g-recaptcha"
        data-sitekey="6LffTvMrAAAAAHmkR4BYANvufG3El2GYu0VqLCn1"
        data-callback="onRecaptchaOk"
@@ -243,26 +245,45 @@
   </div>
 </form>
 
+<!-- Carregue o script do reCAPTCHA UMA única vez na página -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 <script>
 (function () {
+  // Garante que os elementos existem antes do código rodar
   const form = document.getElementById('contato-form');
   const btn  = document.getElementById('btn-enviar');
   const tokenField = document.getElementById('recaptcha-token');
 
-  window.onRecaptchaOk = function (token) { tokenField.value = token; };
-  window.onRecaptchaExpired = function () { tokenField.value=''; if (window.grecaptcha) grecaptcha.reset(); };
-  window.onRecaptchaError = function () { alert('Erro ao carregar o reCAPTCHA. Tente novamente.'); };
+  // Callbacks do reCAPTCHA (o Google chama estes nomes)
+  window.onRecaptchaOk = function (token) {
+    if (tokenField) tokenField.value = token;
+  };
+  window.onRecaptchaExpired = function () {
+    if (tokenField) tokenField.value = '';
+    if (window.grecaptcha) grecaptcha.reset();
+  };
+  window.onRecaptchaError = function () {
+    alert('Erro ao carregar o reCAPTCHA. Tente novamente.');
+  };
 
+  // Validação no submit
   form.addEventListener('submit', function (e) {
     const gotcha = form.querySelector('input[name="_gotcha"]');
     if (gotcha && gotcha.value.trim() !== '') { e.preventDefault(); return; }
-    if (!tokenField.value) { e.preventDefault(); alert('Confirme o reCAPTCHA.'); return; }
-    btn.disabled = true; btn.style.opacity = '0.7'; btn.textContent = 'Enviando...';
+
+    if (!tokenField || !tokenField.value) {
+      e.preventDefault();
+      alert('Confirme o reCAPTCHA antes de enviar.');
+      return;
+    }
+
+    btn.disabled = true;
+    btn.style.opacity = '0.7';
+    btn.textContent = 'Enviando...';
   });
 })();
 </script>
-
-
 
 
       </div><!-- fecha coluna direita -->
