@@ -42,8 +42,10 @@ export default async function handler(req, res) {
   }
 
   if (!ok) {
-    return res.status(403).send('Erro: reCAPTCHA inválido.');
-  }
+  return res
+    .status(403)
+    .send('Erro: reCAPTCHA inválido. ' + JSON.stringify(verifyJson));
+}
 
   // Encaminha para o Getform com o mesmo corpo
   const fwd = await fetch(process.env.GETFORM_ENDPOINT, {
