@@ -241,24 +241,44 @@
     const btn  = document.getElementById('btn-enviar');
 
     form.addEventListener('submit', function (e) {
+      e.preventDefault(); // impede o envio automático
+
       const gotcha = form.querySelector('input[name="_gotcha"]');
-      if (gotcha && gotcha.value.trim() !== '') {
-        e.preventDefault(); return false;
+      if (gotcha && gotcha.value.trim() !== '') return false;
+
+      // verifica se o reCAPTCHA existe e foi marcado
+      if (typeof grecaptcha === 'undefined') {
+        alert('Erro: reCAPTCHA não carregou.');
+        return false;
       }
-      if (typeof grecaptcha !== 'undefined') {
-        const resp = grecaptcha.getResponse();
-        if (!resp || resp.length === 0) {
-          e.preventDefault();
-          alert('Confirme o reCAPTCHA antes de enviar.');
-          return false;
-        }
+
+      const token = grecaptcha.getResponse();
+      if (!token || token.length === 0) {
+        alert('Confirme o reCAPTCHA antes de enviar.');
+        return false;
       }
+
+      // adiciona o token no form antes de enviar
+      let hidden = form.querySelector('input[name="g-recaptcha-response"]');
+      if (!hidden) {
+        hidden = document.createElement('input');
+        hidden.type = 'hidden';
+        hidden.name = 'g-recaptcha-response';
+        form.appendChild(hidden);
+      }
+      hidden.value = token;
+
+      // feedback visual
       btn.disabled = true;
       btn.style.opacity = '0.7';
       btn.textContent = 'Enviando...';
+
+      // envia de verdade
+      form.submit();
     });
   })();
 </script>
+
 
 
       </div><!-- fecha coluna direita -->
