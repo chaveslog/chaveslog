@@ -225,59 +225,52 @@
   </div>
 
   <!-- reCAPTCHA v2 checkbox -->
-  <div class="g-recaptcha" data-sitekey="6LfhhtArAAAAALjUHifi0gAc9fhza__m1ge2KDia"></div>
+<input type="hidden" id="recaptcha-token" name="g-recaptcha-response" />
 
-  <button id="btn-enviar" class="mt-2 inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 font-semibold text-white" style="background:var(--brand-green)">
-    Enviar
-  </button>
-</form>
+<div class="g-recaptcha"
+     data-sitekey="SUA_SITE_KEY_AQUI"
+     data-callback="onRecaptchaOk"
+     data-expired-callback="onRecaptchaExpired"
+     data-error-callback="onRecaptchaError"></div>
 
-<!-- Script do reCAPTCHA (necessário) -->
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 <script>
   (function () {
     const form = document.getElementById('contato-form');
     const btn  = document.getElementById('btn-enviar');
+    const tokenField = document.getElementById('recaptcha-token');
+
+    window.onRecaptchaOk = function (token) {
+      // Google entrega o token novo aqui → colocamos no campo hidden
+      tokenField.value = token;
+    };
+
+    window.onRecaptchaExpired = function () {
+      tokenField.value = '';
+      // força o usuário a resolver de novo
+      if (window.grecaptcha) grecaptcha.reset();
+    };
+
+    window.onRecaptchaError = function () {
+      alert('Erro ao carregar o reCAPTCHA. Tente novamente.');
+    };
 
     form.addEventListener('submit', function (e) {
-      e.preventDefault(); // impede o envio automático
-
-      const gotcha = form.querySelector('input[name="_gotcha"]');
-      if (gotcha && gotcha.value.trim() !== '') return false;
-
-      // verifica se o reCAPTCHA existe e foi marcado
-      if (typeof grecaptcha === 'undefined') {
-        alert('Erro: reCAPTCHA não carregou.');
-        return false;
-      }
-
-      const token = grecaptcha.getResponse();
-      if (!token || token.length === 0) {
+      // cancela se não tiver token válido no campo hidden
+      if (!tokenField.value) {
+        e.preventDefault();
         alert('Confirme o reCAPTCHA antes de enviar.');
         return false;
       }
-
-      // adiciona o token no form antes de enviar
-      let hidden = form.querySelector('input[name="g-recaptcha-response"]');
-      if (!hidden) {
-        hidden = document.createElement('input');
-        hidden.type = 'hidden';
-        hidden.name = 'g-recaptcha-response';
-        form.appendChild(hidden);
-      }
-      hidden.value = token;
-
       // feedback visual
       btn.disabled = true;
       btn.style.opacity = '0.7';
       btn.textContent = 'Enviando...';
-
-      // envia de verdade
-      form.submit();
     });
   })();
 </script>
+
 
 
 
