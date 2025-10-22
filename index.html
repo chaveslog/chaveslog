@@ -224,14 +224,25 @@
     <textarea required name="mensagem" rows="4" class="mt-1 w-full rounded-xl border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-600" placeholder="Conte sobre sua necessidade"></textarea>
   </div>
 
-  <!-- reCAPTCHA v2 checkbox -->
+  <!-- reCAPTCHA v2 -->
 <input type="hidden" id="recaptcha-token" name="g-recaptcha-response" />
 
 <div class="g-recaptcha"
-     data-sitekey="6LfhhtArAAAAALjUHifi0gAc9fhza__m1ge2KDia"
+     data-sitekey="SUA_SITE_KEY_AQUI"
      data-callback="onRecaptchaOk"
      data-expired-callback="onRecaptchaExpired"
      data-error-callback="onRecaptchaError"></div>
+
+<!-- BOTÃO: fica DENTRO do <form>, depois do reCAPTCHA -->
+<div class="mt-3 flex justify-end">
+  <button
+    type="submit"
+    id="btn-enviar"
+    class="inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 font-semibold text-white"
+    style="background: var(--brand-green);">
+    Enviar
+  </button>
+</div>
 
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
@@ -242,34 +253,33 @@
     const tokenField = document.getElementById('recaptcha-token');
 
     window.onRecaptchaOk = function (token) {
-      // Google entrega o token novo aqui → colocamos no campo hidden
-      tokenField.value = token;
+      tokenField.value = token; // Google entrega o token aqui
     };
-
     window.onRecaptchaExpired = function () {
       tokenField.value = '';
-      // força o usuário a resolver de novo
       if (window.grecaptcha) grecaptcha.reset();
     };
-
     window.onRecaptchaError = function () {
       alert('Erro ao carregar o reCAPTCHA. Tente novamente.');
     };
 
     form.addEventListener('submit', function (e) {
-      // cancela se não tiver token válido no campo hidden
+      const gotcha = form.querySelector('input[name="_gotcha"]');
+      if (gotcha && gotcha.value.trim() !== '') { e.preventDefault(); return; }
+
       if (!tokenField.value) {
         e.preventDefault();
         alert('Confirme o reCAPTCHA antes de enviar.');
-        return false;
+        return;
       }
-      // feedback visual
+
       btn.disabled = true;
       btn.style.opacity = '0.7';
       btn.textContent = 'Enviando...';
     });
   })();
 </script>
+
 
 
 
