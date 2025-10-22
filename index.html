@@ -225,26 +225,24 @@
   </div>
 
   <!-- reCAPTCHA v2 -->
-<input type="hidden" id="recaptcha-token" name="g-recaptcha-response" />
+  <input type="hidden" id="recaptcha-token" name="g-recaptcha-response" />
+  <div class="g-recaptcha"
+       data-sitekey="6LffTvMrAAAAAHmkR4BYANvufG3El2GYu0VqLCn1"
+       data-callback="onRecaptchaOk"
+       data-expired-callback="onRecaptchaExpired"
+       data-error-callback="onRecaptchaError"></div>
 
-<div class="g-recaptcha"
-     data-sitekey="6LffTvMrAAAAAHmkR4BYANvufG3El2GYu0VqLCn1"
-     data-callback="onRecaptchaOk"
-     data-expired-callback="onRecaptchaExpired"
-     data-error-callback="onRecaptchaError"></div>
+  <div class="mt-3 flex justify-end">
+    <button
+      type="submit"
+      id="btn-enviar"
+      class="inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 font-semibold text-white"
+      style="background: var(--brand-green);">
+      Enviar
+    </button>
+  </div>
+</form>
 
-<!-- Botão dentro do <form> -->
-<div class="mt-3 flex justify-end">
-  <button
-    type="submit"
-    id="btn-enviar"
-    class="inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 font-semibold text-white"
-    style="background: var(--brand-green);">
-    Enviar
-  </button>
-</div>
-
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script>
 (function () {
   const form = document.getElementById('contato-form');
@@ -252,8 +250,8 @@
   const tokenField = document.getElementById('recaptcha-token');
 
   window.onRecaptchaOk = function (token) { tokenField.value = token; };
-  window.onRecaptchaExpired = function () { tokenField.value=''; grecaptcha.reset(); };
-  window.onRecaptchaError = function () { alert('Erro ao carregar o reCAPTCHA.'); };
+  window.onRecaptchaExpired = function () { tokenField.value=''; if (window.grecaptcha) grecaptcha.reset(); };
+  window.onRecaptchaError = function () { alert('Erro ao carregar o reCAPTCHA. Tente novamente.'); };
 
   form.addEventListener('submit', function (e) {
     const gotcha = form.querySelector('input[name="_gotcha"]');
@@ -263,7 +261,6 @@
   });
 })();
 </script>
-
 
 
 
