@@ -125,61 +125,44 @@ nav.scrolled .nav-logo img { height: 38px; }
 }
 .mobile-menu a:hover { color: var(--yellow); }
 
-/* === HERO (cinematic, parallax) === */
+/* === HERO (editorial, clean) === */
 #home {
   position: relative;
   height: 100vh;
-  min-height: 640px;
+  min-height: 660px;
   overflow: hidden;
+  background: var(--dark);
 }
 .hero-layer { position: absolute; inset: 0; will-change: transform; }
 .hero-bg {
   background-image: url('img/hero-granel.jpg');
   background-size: cover;
-  background-position: center 42%;
-  transform: scale(1.15);
+  background-position: center 38%;
+  transform: scale(1.12);
 }
+/* foto real em cor natural (luz dourada já valoriza o visual) */
+.hero-bg {
+  filter: contrast(1.03) brightness(.92) saturate(1.05);
+}
+.hero-bg::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(120deg, rgba(13,74,34,.18) 0%, transparent 50%);
+}
+/* readability gradient: escurece esquerda e base, preserva o céu/sol à direita */
 .hero-bg::after {
   content: '';
   position: absolute; inset: 0;
   background:
-    linear-gradient(180deg, rgba(7,11,9,.55) 0%, rgba(7,11,9,.15) 35%, rgba(7,11,9,.75) 100%),
-    linear-gradient(100deg, rgba(5,12,7,.92) 0%, rgba(8,20,12,.55) 45%, rgba(10,40,18,.25) 100%);
+    linear-gradient(90deg, rgba(7,11,9,.9) 0%, rgba(7,11,9,.6) 35%, rgba(7,11,9,.15) 70%, transparent 100%),
+    linear-gradient(0deg, rgba(7,11,9,.75) 0%, rgba(7,11,9,.1) 30%, transparent 50%);
 }
-/* animated mesh glow */
-.hero-glow {
-  position: absolute;
-  width: 70vw; height: 70vw;
-  top: -20%; right: -10%;
-  background: radial-gradient(circle, rgba(43,194,95,.18) 0%, transparent 60%);
-  filter: blur(40px);
-  animation: glowFloat 14s ease-in-out infinite alternate;
-  pointer-events: none;
+/* thin structural frame lines (editorial detail) */
+.hero-frame { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+.hero-frame::before {
+  content: ''; position: absolute; left: 5%; top: 0; bottom: 0;
+  width: 1px; background: linear-gradient(180deg, transparent, rgba(245,249,246,.12) 30%, rgba(245,249,246,.12) 70%, transparent);
 }
-.hero-glow.two {
-  top: auto; bottom: -25%; left: -15%; right: auto;
-  width: 55vw; height: 55vw;
-  background: radial-gradient(circle, rgba(240,180,41,.12) 0%, transparent 60%);
-  animation-duration: 18s;
-}
-@keyframes glowFloat {
-  0% { transform: translate(0,0) scale(1); }
-  100% { transform: translate(-6%, 8%) scale(1.15); }
-}
-/* animated road line svg */
-.hero-road {
-  position: absolute; bottom: 0; left: 0; right: 0; height: 40%;
-  z-index: 1; pointer-events: none; opacity: .5;
-}
-.hero-road path {
-  stroke: var(--yellow);
-  stroke-width: 2;
-  stroke-dasharray: 14 18;
-  fill: none;
-  opacity: .35;
-  animation: dashMove 2.5s linear infinite;
-}
-@keyframes dashMove { to { stroke-dashoffset: -64; } }
 
 .hero-content {
   position: relative;
@@ -188,8 +171,8 @@ nav.scrolled .nav-logo img { height: 38px; }
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 5%;
-  max-width: 900px;
+  padding: 0 5% 90px calc(5% + 40px);
+  max-width: 980px;
   will-change: transform, opacity;
 }
 .hero-badge {
@@ -262,12 +245,33 @@ nav.scrolled .nav-logo img { height: 38px; }
 .btn-secondary:hover { border-color: var(--yellow); color: var(--yellow); transform: translateY(-2px); }
 
 .hero-scroll-hint {
-  position: absolute; bottom: 30px; left: 5%; z-index: 3;
+  position: absolute; bottom: 30px; right: 5%; z-index: 4;
   display: flex; align-items: center; gap: 12px;
   color: rgba(245,249,246,.45); font-size: .7rem; font-weight: 600;
   letter-spacing: .15em; text-transform: uppercase; opacity: 0;
   animation: heroIn 1s ease 1.5s forwards;
 }
+/* hero bottom stat bar (premium overlap pattern) */
+.hero-statbar {
+  position: absolute; bottom: 0; left: 0; right: 0; z-index: 4;
+  display: flex; flex-wrap: wrap;
+  border-top: 1px solid rgba(245,249,246,.12);
+  background: linear-gradient(0deg, rgba(7,11,9,.6), transparent);
+  backdrop-filter: blur(2px);
+  opacity: 0; animation: heroIn 1s ease 1.2s forwards;
+}
+.hero-stat {
+  flex: 1; min-width: 140px;
+  padding: 22px 5%; display: flex; flex-direction: column;
+  border-right: 1px solid rgba(245,249,246,.1);
+}
+.hero-stat:last-child { border-right: none; }
+.hero-stat b {
+  font-family: 'Barlow Condensed', sans-serif; font-size: 1.7rem; font-weight: 900;
+  color: var(--white); line-height: 1;
+}
+.hero-stat b em { color: var(--yellow); font-style: normal; }
+.hero-stat span { font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--gray); margin-top: 6px; }
 .scroll-mouse {
   width: 22px; height: 34px; border: 2px solid rgba(245,249,246,.3);
   border-radius: 12px; position: relative;
@@ -595,6 +599,9 @@ footer { background: var(--dark-2); border-top: 1px solid var(--border); padding
   .cta-inner { flex-direction: column; align-items: flex-start; }
   .footer-bottom { flex-direction: column; align-items: flex-start; }
   .hero-scroll-hint { display: none; }
+  .hero-statbar { display: none; }
+  .hero-content { padding: 0 5%; }
+  .hero-frame::before { display: none; }
   .pin-section { height: auto; }
   .pin-sticky { position: relative; height: auto; padding: 80px 0; }
   .pin-step { position: relative; opacity: 1; pointer-events: auto; padding: 40px 5%; }
@@ -645,12 +652,7 @@ footer { background: var(--dark-2); border-top: 1px solid var(--border); padding
 <!-- HERO -->
 <section id="home">
   <div class="hero-layer hero-bg" id="heroBg"></div>
-  <div class="hero-glow"></div>
-  <div class="hero-glow two"></div>
-  <svg class="hero-road" viewBox="0 0 1440 300" preserveAspectRatio="none">
-    <path d="M-50,280 Q400,180 720,210 T1490,140"/>
-    <path d="M-50,300 Q400,210 720,240 T1490,180" style="opacity:.18;animation-delay:-1.2s"/>
-  </svg>
+  <div class="hero-frame"></div>
   <div class="hero-content" id="heroContent">
     <div class="hero-badge">Desde 1997 · Nova Odessa/SP</div>
     <h1 class="hero-title">
@@ -671,6 +673,12 @@ footer { background: var(--dark-2); border-top: 1px solid var(--border); padding
     </div>
   </div>
   <div class="hero-scroll-hint"><div class="scroll-mouse"></div>Role para explorar</div>
+  <div class="hero-statbar">
+    <div class="hero-stat"><b><em>27</em></b><span>Anos de mercado</span></div>
+    <div class="hero-stat"><b>15.000<em> m²</em></b><span>Pátio próprio</span></div>
+    <div class="hero-stat"><b>100<em>%</em></b><span>Frota rastreada</span></div>
+    <div class="hero-stat"><b><em>ANTT</em></b><span>Conformidade total</span></div>
+  </div>
 </section>
 
 <!-- MARQUEE -->
@@ -725,7 +733,7 @@ footer { background: var(--dark-2); border-top: 1px solid var(--border); padding
     </div>
     <div class="sobre-visual reveal-scale reveal-d1">
       <div class="sobre-image-wrap">
-        <img src="img/hero-granel.jpg" alt="Frota ChavesLog Transportes">
+        <img src="img/sobre.jpg" alt="Frota ChavesLog ao entardecer" onerror="this.src='img/hero-granel.jpg'">
         <div class="sobre-badge"><strong>27</strong><span>Anos de mercado</span></div>
         <div class="sobre-accent"></div>
       </div>
