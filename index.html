@@ -74,20 +74,20 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 0 5%;
-  height: 76px;
+  height: 88px;
   background: rgba(7, 11, 9, 0);
   backdrop-filter: blur(0px);
   border-bottom: 1px solid transparent;
   transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
 }
 nav.scrolled {
-  height: 62px;
+  height: 70px;
   background: rgba(7, 11, 9, 0.85);
   backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--border);
 }
-.nav-logo img { height: 46px; filter: brightness(1.1); transition: opacity .2s, height .4s; }
-nav.scrolled .nav-logo img { height: 38px; }
+.nav-logo img { height: 62px; filter: brightness(1.15) drop-shadow(0 2px 8px rgba(0,0,0,.5)); transition: opacity .2s, height .4s; }
+nav.scrolled .nav-logo img { height: 50px; }
 .nav-logo img:hover { opacity: .85; }
 .nav-links { display: flex; gap: 34px; list-style: none; }
 .nav-links a {
@@ -112,7 +112,7 @@ nav.scrolled .nav-logo img { height: 38px; }
 .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
 .hamburger span { display: block; width: 24px; height: 2px; background: var(--off-white); transition: all .3s; border-radius: 2px; }
 .mobile-menu {
-  display: none; position: fixed; top: 62px; left: 0; right: 0;
+  display: none; position: fixed; top: 70px; left: 0; right: 0;
   background: rgba(7,11,9,.97); backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--border); padding: 24px 5%;
   flex-direction: column; gap: 18px; z-index: 999;
@@ -548,7 +548,7 @@ section { padding: 110px 5%; position: relative; }
 footer { background: var(--dark-2); border-top: 1px solid var(--border); padding: 60px 5% 32px; }
 .footer-inner { max-width: 1240px; margin: 0 auto; }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
-.footer-brand img { height: 48px; margin-bottom: 16px; filter: brightness(1.1); }
+.footer-brand img { height: 64px; margin-bottom: 16px; filter: brightness(1.15); }
 .footer-brand p { font-size: .82rem; color: var(--gray); line-height: 1.7; margin-bottom: 20px; }
 .footer-cnpj { font-size: .72rem; color: rgba(143,168,150,.5); letter-spacing: .08em; }
 .footer-col h5 { font-size: .72rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; color: var(--white); margin-bottom: 20px; }
