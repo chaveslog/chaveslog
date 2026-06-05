@@ -1,592 +1,1120 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ChavesLog Transportes - Frota de Granéis 100% Rastreada</title>
-  <meta name="description" content="ChavesLog Transportes – 27 anos no transporte rodoviário de cargas a granel. Açúcar VHP, Fertilizantes, Soja, Milho, Calcário, Gesso. Frota 100% rastreada, SASSMAQ certificada, conformidade ANTT. Contate-nos para orçamento!" />
-  <meta name="keywords" content="transporte de granéis, logística SP, frete rodoviário, açúcar, fertilizantes, soja, frota rastreada" />
-  <meta property="og:title" content="ChavesLog Transportes - 27 Anos de Experiência" />
-  <meta property="og:description" content="Especialistas em transporte de granéis sólidos com frota moderna e certificações ambientais." />
-  <meta property="og:type" content="business.business" />
-  <meta property="og:url" content="https://chaveslog.com.br" />
-  <meta property="og:image" content="https://chaveslog.com.br/img/hero-granel.jpg" />
-  <meta property="og:site_name" content="ChavesLog Transportes" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="ChavesLog Transportes - Frota de Granéis" />
-  <meta name="twitter:description" content="27 anos transportando granéis com segurança e eficiência" />
-  <meta name="twitter:image" content="https://chaveslog.com.br/img/hero-granel.jpg" />
-  <link rel="canonical" href="https://chaveslog.com.br" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    :root{
-      --brand-green:#228B22;
-      --brand-yellow:#FFC400;
-      --brand-dark:#0b1a0b;
-    }
-    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif}
-    .brand-gradient{background:linear-gradient(135deg,var(--brand-green),#1d5e1d)}
-    .card-hover:hover{transform:translateY(-4px);transition:all 0.3s ease}
-  </style>
-  <!-- reCAPTCHA v2 -->
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  
-  <!-- Schema.org JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "ChavesLog Transportes",
-    "description": "Empresa de transportes rodoviários de cargas a granel com 27 anos de experiência",
-    "url": "https://chaveslog.com.br",
-    "telephone": "(19) 99266-3933",
-    "email": "operacional@chaveslog.com.br",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Rua Haiti, 15",
-      "addressLocality": "Americana",
-      "addressRegion": "SP",
-      "postalCode": "13465-681",
-      "addressCountry": "BR"
-    },
-    "areaServed": ["São Paulo", "Brasil"],
-    "image": "https://chaveslog.com.br/img/logo-chaveslog-oficial.png",
-    "sameAs": [],
-    "priceRange": "$$",
-    "foundingDate": "1997",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "@id": "https://chaveslog.com.br#rating",
-      "ratingValue": "4.9",
-      "ratingCount": "1",
-      "bestRating": "5",
-      "worstRating": "1"
-    }
-  }
-  </script>
-  
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "ChavesLog Transportes",
-    "url": "https://chaveslog.com.br",
-    "logo": "https://chaveslog.com.br/img/logo-chaveslog-oficial.png",
-    "description": "Transporte rodoviário de granéis sólidos com frota 100% rastreada",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "Customer Service",
-      "telephone": "(19) 99266-3933",
-      "availableLanguage": "pt-BR"
-    }
-  }
-  </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChavesLog Transportes - Frota de Granéis 100% Rastreada</title>
+<meta name="description" content="ChavesLog Transportes – 27 anos no transporte rodoviário de cargas a granel. Açúcar VHP, Fertilizantes, Soja, Milho, Calcário, Gesso. Frota 100% rastreada, SASSMAQ certificada, conformidade ANTT.">
+<meta name="keywords" content="transporte granéis, açúcar VHP, fertilizantes, soja, milho, rodocaçamba, bicaçamba, transportadora Nova Odessa, transportadora Americana, ChavesLog">
+<meta property="og:title" content="ChavesLog Transportes - 27 Anos de Experiência">
+<meta property="og:description" content="Especialistas em transporte de granéis sólidos com frota moderna e certificações ambientais.">
+<meta property="og:image" content="https://chaveslog.com.br/img/hero-granel.jpg">
+<meta property="og:url" content="https://chaveslog.com.br">
+<meta property="og:type" content="business.business">
+<link rel="canonical" href="https://chaveslog.com.br">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: 'Barlow', sans-serif;
+  background: #070b09;
+  color: #e8ede9;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+:root {
+  --green: #1a7a3c;
+  --green-light: #2bc25f;
+  --green-dark: #0d4a22;
+  --yellow: #f0b429;
+  --white: #f5f9f6;
+  --off-white: #dce8de;
+  --gray: #8fa896;
+  --dark: #070b09;
+  --dark-2: #0d130f;
+  --dark-3: #121a14;
+  --dark-4: #18231b;
+  --border: #1e3024;
+}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--dark); }
+::-webkit-scrollbar-thumb { background: var(--green); border-radius: 3px; }
+
+/* === SCROLL PROGRESS BAR === */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--green), var(--yellow));
+  z-index: 2000;
+  transition: width 0.1s linear;
+}
+
+/* === GRAIN OVERLAY === */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1500;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* === NAVBAR === */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  height: 76px;
+  background: rgba(7, 11, 9, 0);
+  backdrop-filter: blur(0px);
+  border-bottom: 1px solid transparent;
+  transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+nav.scrolled {
+  height: 62px;
+  background: rgba(7, 11, 9, 0.85);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo img { height: 46px; filter: brightness(1.1); transition: opacity .2s, height .4s; }
+nav.scrolled .nav-logo img { height: 38px; }
+.nav-logo img:hover { opacity: .85; }
+.nav-links { display: flex; gap: 34px; list-style: none; }
+.nav-links a {
+  color: var(--off-white); text-decoration: none;
+  font-size: .8rem; font-weight: 600; letter-spacing: .12em;
+  text-transform: uppercase; transition: color .2s; position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -5px; left: 0;
+  width: 0; height: 2px; background: var(--yellow); transition: width .3s ease;
+}
+.nav-links a:hover { color: var(--yellow); }
+.nav-links a:hover::after { width: 100%; }
+.nav-cta {
+  background: var(--green); color: #fff !important;
+  padding: 10px 22px; border-radius: 4px;
+  font-weight: 700 !important; letter-spacing: .06em !important;
+  transition: all .25s !important;
+}
+.nav-cta:hover { background: var(--green-light) !important; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(43,194,95,.35); }
+.nav-cta::after { display: none !important; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.hamburger span { display: block; width: 24px; height: 2px; background: var(--off-white); transition: all .3s; border-radius: 2px; }
+.mobile-menu {
+  display: none; position: fixed; top: 62px; left: 0; right: 0;
+  background: rgba(7,11,9,.97); backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border); padding: 24px 5%;
+  flex-direction: column; gap: 18px; z-index: 999;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  color: var(--off-white); text-decoration: none; font-size: 1rem;
+  font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  padding: 8px 0; border-bottom: 1px solid var(--border); transition: color .2s;
+}
+.mobile-menu a:hover { color: var(--yellow); }
+
+/* === HERO (cinematic, parallax) === */
+#home {
+  position: relative;
+  height: 100vh;
+  min-height: 640px;
+  overflow: hidden;
+}
+.hero-layer { position: absolute; inset: 0; will-change: transform; }
+.hero-bg {
+  background-image: url('img/hero-granel.jpg');
+  background-size: cover;
+  background-position: center 42%;
+  transform: scale(1.15);
+}
+.hero-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(7,11,9,.55) 0%, rgba(7,11,9,.15) 35%, rgba(7,11,9,.75) 100%),
+    linear-gradient(100deg, rgba(5,12,7,.92) 0%, rgba(8,20,12,.55) 45%, rgba(10,40,18,.25) 100%);
+}
+/* animated mesh glow */
+.hero-glow {
+  position: absolute;
+  width: 70vw; height: 70vw;
+  top: -20%; right: -10%;
+  background: radial-gradient(circle, rgba(43,194,95,.18) 0%, transparent 60%);
+  filter: blur(40px);
+  animation: glowFloat 14s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+.hero-glow.two {
+  top: auto; bottom: -25%; left: -15%; right: auto;
+  width: 55vw; height: 55vw;
+  background: radial-gradient(circle, rgba(240,180,41,.12) 0%, transparent 60%);
+  animation-duration: 18s;
+}
+@keyframes glowFloat {
+  0% { transform: translate(0,0) scale(1); }
+  100% { transform: translate(-6%, 8%) scale(1.15); }
+}
+/* animated road line svg */
+.hero-road {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 40%;
+  z-index: 1; pointer-events: none; opacity: .5;
+}
+.hero-road path {
+  stroke: var(--yellow);
+  stroke-width: 2;
+  stroke-dasharray: 14 18;
+  fill: none;
+  opacity: .35;
+  animation: dashMove 2.5s linear infinite;
+}
+@keyframes dashMove { to { stroke-dashoffset: -64; } }
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 5%;
+  max-width: 900px;
+  will-change: transform, opacity;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px; width: fit-content;
+  background: rgba(240,180,41,.1); border: 1px solid rgba(240,180,41,.35);
+  color: var(--yellow); font-size: .7rem; font-weight: 700;
+  letter-spacing: .22em; text-transform: uppercase;
+  padding: 8px 16px; border-radius: 2px; margin-bottom: 30px;
+  opacity: 0; transform: translateY(24px);
+  animation: heroIn .9s cubic-bezier(.16,1,.3,1) .2s forwards;
+}
+.hero-badge::before {
+  content: ''; width: 6px; height: 6px; background: var(--yellow);
+  border-radius: 50%; animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:.4;transform:scale(1.5);} }
+
+.hero-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 900; line-height: .9;
+  color: var(--white); text-transform: uppercase;
+  letter-spacing: -.015em; margin-bottom: 28px;
+}
+.hero-title .line { display: block; overflow: hidden; }
+.hero-title .line span {
+  display: inline-block;
+  transform: translateY(110%);
+  animation: lineUp 1s cubic-bezier(.16,1,.3,1) forwards;
+}
+.hero-title .line:nth-child(1) span { animation-delay: .35s; }
+.hero-title .line:nth-child(2) span { animation-delay: .47s; }
+.hero-title .line:nth-child(3) span { animation-delay: .59s; }
+.hero-title em { font-style: normal; color: var(--yellow); }
+@keyframes lineUp { to { transform: translateY(0); } }
+
+.hero-subtitle {
+  font-size: clamp(1rem, 1.6vw, 1.18rem);
+  color: var(--off-white); font-weight: 300;
+  max-width: 600px; margin-bottom: 42px; line-height: 1.7; opacity: 0;
+  animation: heroIn .9s cubic-bezier(.16,1,.3,1) .8s forwards;
+}
+.hero-actions {
+  display: flex; gap: 16px; flex-wrap: wrap; opacity: 0;
+  animation: heroIn .9s cubic-bezier(.16,1,.3,1) .95s forwards;
+}
+@keyframes heroIn { to { opacity: 1; transform: translateY(0); } }
+
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--green); color: #fff; text-decoration: none;
+  font-size: .88rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  padding: 17px 34px; border-radius: 3px; border: none; cursor: pointer;
+  transition: all .25s; position: relative; overflow: hidden;
+}
+.btn-primary::before {
+  content: ''; position: absolute; inset: 0;
+  background: var(--green-light); transform: translateX(-101%);
+  transition: transform .35s cubic-bezier(.4,0,.2,1); z-index: 0;
+}
+.btn-primary:hover::before { transform: translateX(0); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(26,122,60,.45); }
+.btn-primary > * { position: relative; z-index: 1; }
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 10px; background: transparent;
+  color: var(--off-white); text-decoration: none; font-size: .88rem; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase; padding: 17px 34px;
+  border-radius: 3px; border: 1px solid rgba(245,249,246,.25); transition: all .25s;
+}
+.btn-secondary:hover { border-color: var(--yellow); color: var(--yellow); transform: translateY(-2px); }
+
+.hero-scroll-hint {
+  position: absolute; bottom: 30px; left: 5%; z-index: 3;
+  display: flex; align-items: center; gap: 12px;
+  color: rgba(245,249,246,.45); font-size: .7rem; font-weight: 600;
+  letter-spacing: .15em; text-transform: uppercase; opacity: 0;
+  animation: heroIn 1s ease 1.5s forwards;
+}
+.scroll-mouse {
+  width: 22px; height: 34px; border: 2px solid rgba(245,249,246,.3);
+  border-radius: 12px; position: relative;
+}
+.scroll-mouse::before {
+  content: ''; position: absolute; top: 6px; left: 50%; transform: translateX(-50%);
+  width: 3px; height: 6px; background: var(--yellow); border-radius: 2px;
+  animation: mouseScroll 1.8s ease-in-out infinite;
+}
+@keyframes mouseScroll { 0%{opacity:0;top:6px;} 30%{opacity:1;} 60%{opacity:1;top:18px;} 100%{opacity:0;top:18px;} }
+
+/* === MARQUEE STRIP === */
+.marquee {
+  background: var(--green-dark);
+  border-top: 1px solid rgba(43,194,95,.2);
+  border-bottom: 1px solid rgba(43,194,95,.2);
+  overflow: hidden; padding: 16px 0; white-space: nowrap;
+}
+.marquee-track { display: inline-flex; gap: 48px; animation: marquee 28s linear infinite; }
+.marquee-track span {
+  font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--off-white);
+  display: inline-flex; align-items: center; gap: 48px;
+}
+.marquee-track span::after { content: '●'; color: var(--yellow); font-size: .6rem; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* === KPI === */
+.kpi-strip { background: var(--dark-3); border-bottom: 1px solid var(--border); }
+.kpi-grid { display: grid; grid-template-columns: repeat(4,1fr); max-width: 1240px; margin: 0 auto; }
+.kpi-item {
+  padding: 44px 32px; display: flex; flex-direction: column; align-items: center;
+  text-align: center; border-right: 1px solid var(--border); transition: background .3s;
+}
+.kpi-item:last-child { border-right: none; }
+.kpi-item:hover { background: rgba(26,122,60,.06); }
+.kpi-icon { width: 38px; height: 38px; margin-bottom: 14px; color: var(--green-light); opacity: .85; }
+.kpi-number {
+  font-family: 'Barlow Condensed', sans-serif; font-size: clamp(2.2rem,3.5vw,3rem);
+  font-weight: 900; color: var(--white); line-height: 1; margin-bottom: 6px;
+}
+.kpi-number span { color: var(--yellow); }
+.kpi-label { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--green-light); margin-bottom: 4px; }
+.kpi-desc { font-size: .78rem; color: var(--gray); }
+
+/* === SECTION COMMON === */
+section { padding: 110px 5%; position: relative; }
+.container { max-width: 1240px; margin: 0 auto; }
+.section-header { margin-bottom: 64px; }
+.section-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: .7rem; font-weight: 800; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--yellow); margin-bottom: 16px;
+}
+.section-tag::before { content: ''; width: 24px; height: 2px; background: var(--yellow); }
+.section-title {
+  font-family: 'Barlow Condensed', sans-serif; font-size: clamp(2.2rem,4.5vw,3.6rem);
+  font-weight: 800; text-transform: uppercase; line-height: 1.02; color: var(--white); letter-spacing: -.01em;
+}
+.section-title em { font-style: normal; color: var(--green-light); }
+.section-subtitle { font-size: 1.02rem; color: var(--gray); margin-top: 16px; max-width: 600px; line-height: 1.7; }
+
+/* === REVEAL === */
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-d1 { transition-delay: .1s; } .reveal-d2 { transition-delay: .2s; }
+.reveal-d3 { transition-delay: .3s; } .reveal-d4 { transition-delay: .4s; }
+.reveal-scale { opacity: 0; transform: scale(.94) translateY(30px); transition: all .8s cubic-bezier(.16,1,.3,1); }
+.reveal-scale.visible { opacity: 1; transform: scale(1) translateY(0); }
+
+/* === SOBRE === */
+#sobre { background: var(--dark-2); }
+.sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; max-width: 1240px; margin: 0 auto; }
+.sobre-text p { font-size: 1rem; color: #b8c8ba; line-height: 1.8; margin-bottom: 20px; }
+.sobre-text strong { color: var(--white); font-weight: 600; }
+.sobre-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 36px; }
+.pillar { padding: 22px; border: 1px solid var(--border); border-radius: 6px; background: rgba(255,255,255,.02); transition: all .3s; }
+.pillar:hover { border-color: var(--green); background: rgba(26,122,60,.06); transform: translateY(-3px); }
+.pillar-icon { font-size: 1.5rem; margin-bottom: 10px; }
+.pillar h4 { font-family: 'Barlow Condensed', sans-serif; font-size: .88rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--green-light); margin-bottom: 4px; }
+.pillar p { font-size: .82rem; color: var(--gray); line-height: 1.5; margin: 0 !important; }
+.sobre-visual { position: relative; }
+.sobre-image-wrap { position: relative; border-radius: 8px; overflow: hidden; }
+.sobre-image-wrap img {
+  width: 100%; height: 500px; object-fit: cover; display: block;
+  filter: brightness(.85) saturate(.95); transition: transform .8s cubic-bezier(.16,1,.3,1);
+  will-change: transform;
+}
+.sobre-image-wrap:hover img { transform: scale(1.05); }
+.sobre-badge {
+  position: absolute; bottom: -22px; left: -22px; background: var(--green);
+  color: #fff; padding: 22px 26px; border-radius: 6px; text-align: center;
+  box-shadow: 0 12px 40px rgba(0,0,0,.5);
+}
+.sobre-badge strong { font-family: 'Barlow Condensed', sans-serif; font-size: 2.6rem; font-weight: 900; display: block; line-height: 1; }
+.sobre-badge span { font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; opacity: .85; }
+.sobre-accent { position: absolute; top: -12px; right: -12px; width: 64px; height: 64px; border-top: 3px solid var(--yellow); border-right: 3px solid var(--yellow); border-radius: 0 8px 0 0; }
+
+/* === PINNED SCROLL NARRATIVE (Apple-style) === */
+.pin-section { height: 320vh; position: relative; background: var(--dark); }
+.pin-sticky {
+  position: sticky; top: 0; height: 100vh; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.pin-bg {
+  position: absolute; inset: 0;
+  background-image: url('img/frota-exemplo.jpg');
+  background-size: cover; background-position: center;
+  transform: scale(1.2); will-change: transform, filter;
+  filter: brightness(.4);
+}
+.pin-bg::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at center, transparent 0%, rgba(7,11,9,.7) 100%); }
+.pin-content { position: relative; z-index: 2; text-align: center; max-width: 900px; padding: 0 5%; }
+.pin-step {
+  position: absolute; inset: 0; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; opacity: 0;
+  transition: opacity .5s ease, transform .5s ease; pointer-events: none;
+}
+.pin-step.active { opacity: 1; pointer-events: auto; }
+.pin-step .big-num {
+  font-family: 'Barlow Condensed', sans-serif; font-size: clamp(4rem,12vw,11rem);
+  font-weight: 900; line-height: .85; color: var(--white); letter-spacing: -.02em;
+}
+.pin-step .big-num em { color: var(--yellow); font-style: normal; }
+.pin-step h3 {
+  font-family: 'Barlow Condensed', sans-serif; font-size: clamp(1.4rem,3vw,2.4rem);
+  font-weight: 700; text-transform: uppercase; color: var(--green-light);
+  letter-spacing: .04em; margin-top: 12px;
+}
+.pin-step p { font-size: 1.05rem; color: var(--off-white); max-width: 540px; margin: 18px auto 0; line-height: 1.7; opacity: .85; }
+.pin-progress {
+  position: absolute; bottom: 48px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 12px; z-index: 3;
+}
+.pin-dot { width: 40px; height: 3px; background: rgba(255,255,255,.2); border-radius: 2px; transition: background .3s; }
+.pin-dot.active { background: var(--yellow); }
+
+/* === ESPECIALIDADES === */
+#especialidades { background: var(--dark-2); }
+.esp-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; max-width: 1240px; margin: 0 auto; background: var(--border); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.esp-card { background: var(--dark-3); padding: 40px 34px; transition: all .35s; position: relative; overflow: hidden; }
+.esp-card::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--green), var(--yellow)); transform: scaleX(0); transform-origin: left; transition: transform .4s ease; }
+.esp-card:hover { background: var(--dark-4); transform: translateY(-3px); }
+.esp-card:hover::before { transform: scaleX(1); }
+.esp-icon { font-size: 2.2rem; margin-bottom: 18px; display: block; transition: transform .35s; }
+.esp-card:hover .esp-icon { transform: scale(1.15) rotate(-5deg); }
+.esp-card h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.2rem; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--white); margin-bottom: 8px; }
+.esp-card p { font-size: .85rem; color: var(--gray); line-height: 1.6; }
+
+/* === CONFORMIDADE === */
+#conformidade { background: var(--green-dark); border-top: 1px solid rgba(43,194,95,.25); border-bottom: 1px solid rgba(43,194,95,.25); padding: 64px 5%; }
+.conf-inner { max-width: 1240px; margin: 0 auto; display: flex; align-items: center; gap: 48px; flex-wrap: wrap; }
+.conf-left h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.7rem; font-weight: 800; text-transform: uppercase; color: var(--white); letter-spacing: .04em; margin-bottom: 4px; }
+.conf-left p { font-size: .84rem; color: rgba(245,249,246,.65); }
+.conf-divider { width: 1px; height: 60px; background: rgba(255,255,255,.15); flex-shrink: 0; }
+.conf-tags { display: flex; flex-wrap: wrap; gap: 10px; flex: 1; }
+.conf-tag { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); color: var(--white); font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 9px 15px; border-radius: 2px; transition: all .2s; }
+.conf-tag:hover { background: rgba(255,255,255,.16); border-color: var(--yellow); transform: translateY(-2px); }
+.conf-tag::before { content: '✓'; color: var(--yellow); font-size: .8rem; }
+
+/* === FROTA === */
+#frota { background: var(--dark); }
+.frota-inner { max-width: 1240px; margin: 0 auto; }
+.frota-top { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+.frota-tipo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px; }
+.frota-tipo { padding: 30px; border: 1px solid var(--border); border-radius: 6px; background: rgba(26,122,60,.04); transition: all .3s; }
+.frota-tipo:hover { border-color: var(--green); background: rgba(26,122,60,.1); transform: translateY(-3px); }
+.frota-tipo h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.4rem; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--yellow); margin-bottom: 8px; }
+.frota-tipo p { font-size: .85rem; color: var(--gray); line-height: 1.5; }
+.frota-features { display: flex; flex-direction: column; gap: 16px; }
+.frota-feature { display: flex; align-items: flex-start; gap: 16px; padding: 22px; border: 1px solid var(--border); border-radius: 6px; background: rgba(255,255,255,.02); transition: all .3s; }
+.frota-feature:hover { border-color: var(--green); transform: translateX(4px); }
+.frota-feature-icon { width: 44px; height: 44px; background: rgba(26,122,60,.15); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--green-light); }
+.frota-feature h4 { font-size: .9rem; font-weight: 700; color: var(--white); margin-bottom: 4px; text-transform: uppercase; letter-spacing: .06em; }
+.frota-feature p { font-size: .82rem; color: var(--gray); line-height: 1.5; }
+.frota-image-area { position: relative; border-radius: 8px; overflow: hidden; }
+.frota-image-area img { width: 100%; height: 100%; min-height: 440px; object-fit: cover; display: block; filter: brightness(.85); will-change: transform; }
+.frota-overlay-text { position: absolute; bottom: 0; left: 0; right: 0; padding: 34px 30px 30px; background: linear-gradient(transparent, rgba(0,0,0,.88)); }
+.frota-overlay-text h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.5rem; font-weight: 800; text-transform: uppercase; color: var(--white); letter-spacing: .04em; }
+.frota-overlay-text p { font-size: .82rem; color: var(--off-white); opacity: .75; margin-top: 4px; }
+
+/* === ESTRUTURA === */
+#estrutura { background: var(--dark-2); }
+.estrutura-inner { max-width: 1240px; margin: 0 auto; }
+.estrutura-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.estrutura-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 36px; }
+.est-stat { padding: 26px; border: 1px solid var(--border); border-radius: 6px; background: rgba(255,255,255,.015); transition: all .3s; }
+.est-stat:hover { border-color: var(--green); transform: translateY(-3px); }
+.est-stat-num { font-family: 'Barlow Condensed', sans-serif; font-size: 2.6rem; font-weight: 900; color: var(--yellow); line-height: 1; margin-bottom: 4px; }
+.est-stat-label { font-size: .76rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--gray); }
+.estrutura-items { display: flex; flex-direction: column; gap: 12px; }
+.est-item { display: flex; align-items: center; gap: 12px; color: #b8c8ba; font-size: .9rem; }
+.est-item::before { content: ''; width: 6px; height: 6px; background: var(--green-light); border-radius: 50%; flex-shrink: 0; }
+.estrutura-map { border-radius: 8px; overflow: hidden; border: 1px solid var(--border); background: var(--dark-3); }
+.estrutura-map iframe { width: 100%; height: 400px; display: block; filter: invert(90%) hue-rotate(160deg) saturate(.6) brightness(.85); border: none; }
+.map-caption { padding: 16px 20px; background: var(--dark-3); display: flex; align-items: center; gap: 10px; border-top: 1px solid var(--border); }
+.map-caption svg { width: 16px; height: 16px; color: var(--green-light); flex-shrink: 0; }
+.map-caption span { font-size: .8rem; color: var(--gray); }
+.map-caption a { margin-left: auto; font-size: .76rem; font-weight: 700; color: var(--green-light); text-decoration: none; letter-spacing: .06em; text-transform: uppercase; transition: color .2s; }
+.map-caption a:hover { color: var(--yellow); }
+
+/* === CERTIFICAÇÕES === */
+#certificacoes { background: var(--dark); }
+.cert-inner { max-width: 1240px; margin: 0 auto; }
+.cert-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 16px; }
+.cert-card { padding: 30px 20px; border: 1px solid var(--border); border-radius: 6px; background: var(--dark-3); text-align: center; transition: all .35s; position: relative; overflow: hidden; }
+.cert-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--green), var(--yellow)); transform: scaleX(0); transition: transform .3s; }
+.cert-card:hover { border-color: rgba(26,122,60,.4); background: var(--dark-4); transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,.4); }
+.cert-card:hover::after { transform: scaleX(1); }
+.cert-badge { width: 54px; height: 54px; background: rgba(26,122,60,.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; color: var(--green-light); font-size: 1.5rem; transition: all .35s; }
+.cert-card:hover .cert-badge { background: rgba(26,122,60,.25); transform: scale(1.1); }
+.cert-card h4 { font-family: 'Barlow Condensed', sans-serif; font-size: .98rem; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--white); margin-bottom: 8px; }
+.cert-card p { font-size: .75rem; color: var(--gray); line-height: 1.4; }
+
+/* === HISTÓRIA / TIMELINE === */
+#historia { background: var(--dark-2); }
+.historia-inner { max-width: 1240px; margin: 0 auto; }
+.timeline { position: relative; padding-left: 36px; margin-top: 52px; }
+.timeline-line { position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--border); }
+.timeline-line-fill { position: absolute; left: 0; top: 0; width: 2px; background: linear-gradient(180deg, var(--green), var(--yellow)); height: 0; transition: height .1s linear; }
+.timeline-item { position: relative; padding: 0 0 52px 40px; opacity: 0; transform: translateX(-24px); transition: all .7s cubic-bezier(.16,1,.3,1); }
+.timeline-item.visible { opacity: 1; transform: translateX(0); }
+.timeline-dot { position: absolute; left: -8px; top: 4px; width: 18px; height: 18px; background: var(--dark-2); border: 2px solid var(--green); border-radius: 50%; transition: all .3s; z-index: 2; }
+.timeline-item:hover .timeline-dot { background: var(--green); border-color: var(--yellow); transform: scale(1.2); }
+.timeline-year { font-family: 'Barlow Condensed', sans-serif; font-size: .82rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; color: var(--yellow); margin-bottom: 6px; }
+.timeline-item h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.3rem; font-weight: 800; text-transform: uppercase; color: var(--white); margin-bottom: 8px; }
+.timeline-item p { font-size: .9rem; color: var(--gray); line-height: 1.7; max-width: 560px; }
+.mvv-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 64px; }
+.mvv-card { padding: 34px; border: 1px solid var(--border); border-radius: 6px; background: var(--dark-3); transition: all .3s; }
+.mvv-card:hover { border-color: var(--green); transform: translateY(-4px); }
+.mvv-card h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.15rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--yellow); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+.mvv-card p, .mvv-card li { font-size: .88rem; color: #b8c8ba; line-height: 1.7; }
+.mvv-card ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.mvv-card li::before { content: '→ '; color: var(--green-light); font-weight: 700; }
+
+/* === CTA BAND === */
+#cta-band { padding: 0; background: linear-gradient(120deg, var(--green) 0%, var(--green-dark) 100%); position: relative; overflow: hidden; }
+#cta-band::before { content: ''; position: absolute; top: -50%; right: -10%; width: 50vw; height: 200%; background: radial-gradient(circle, rgba(240,180,41,.15) 0%, transparent 60%); }
+.cta-inner { max-width: 1240px; margin: 0 auto; padding: 64px 5%; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; position: relative; z-index: 1; }
+.cta-text h2 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(1.9rem,3.2vw,2.8rem); font-weight: 900; text-transform: uppercase; color: #fff; letter-spacing: .02em; line-height: 1.05; }
+.cta-text p { font-size: .98rem; color: rgba(255,255,255,.82); margin-top: 8px; }
+.cta-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+.btn-white { display: inline-flex; align-items: center; gap: 10px; background: #fff; color: var(--green-dark); text-decoration: none; font-size: .88rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; padding: 17px 30px; border-radius: 3px; transition: all .25s; }
+.btn-white:hover { background: var(--yellow); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+.btn-outline-white { display: inline-flex; align-items: center; gap: 10px; background: transparent; color: #fff; text-decoration: none; font-size: .88rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 17px 30px; border-radius: 3px; border: 2px solid rgba(255,255,255,.6); transition: all .25s; }
+.btn-outline-white:hover { border-color: #fff; background: rgba(255,255,255,.12); transform: translateY(-2px); }
+
+/* === CONTATO === */
+#contato { background: var(--dark); }
+.contato-inner { max-width: 1240px; margin: 0 auto; }
+.contato-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 64px; }
+.contato-card { padding: 30px; border: 1px solid var(--border); border-radius: 6px; background: rgba(255,255,255,.02); margin-bottom: 20px; transition: border-color .3s; }
+.contato-card:hover { border-color: var(--green); }
+.contato-card h4 { font-family: 'Barlow Condensed', sans-serif; font-size: .8rem; font-weight: 800; text-transform: uppercase; letter-spacing: .15em; color: var(--yellow); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+.contato-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; color: #b8c8ba; font-size: .88rem; }
+.contato-row svg { width: 16px; height: 16px; color: var(--green-light); flex-shrink: 0; }
+.contato-row a { color: inherit; text-decoration: none; transition: color .2s; }
+.contato-row a:hover { color: var(--green-light); }
+.whatsapp-btn { display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; background: #25d366; color: #fff; text-decoration: none; font-size: .92rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 18px 24px; border-radius: 6px; transition: all .25s; margin-top: 8px; border: none; cursor: pointer; }
+.whatsapp-btn:hover { background: #20ba59; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,.4); }
+.contato-form { display: flex; flex-direction: column; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group label { font-size: .74rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gray); }
+.form-group input, .form-group textarea, .form-group select { background: rgba(255,255,255,.04); border: 1px solid var(--border); border-radius: 4px; color: var(--white); font-family: 'Barlow', sans-serif; font-size: .9rem; padding: 13px 16px; outline: none; transition: all .25s; width: 100%; }
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--green); background: rgba(26,122,60,.06); }
+.form-group select option { background: var(--dark-2); }
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-submit { display: flex; align-items: center; justify-content: center; gap: 10px; background: var(--green); color: #fff; font-size: .9rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; padding: 16px 32px; border-radius: 4px; border: none; cursor: pointer; transition: all .25s; font-family: 'Barlow', sans-serif; }
+.form-submit:hover { background: var(--green-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,122,60,.4); }
+.form-honey { display: none !important; }
+
+/* === FOOTER === */
+footer { background: var(--dark-2); border-top: 1px solid var(--border); padding: 60px 5% 32px; }
+.footer-inner { max-width: 1240px; margin: 0 auto; }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+.footer-brand img { height: 48px; margin-bottom: 16px; filter: brightness(1.1); }
+.footer-brand p { font-size: .82rem; color: var(--gray); line-height: 1.7; margin-bottom: 20px; }
+.footer-cnpj { font-size: .72rem; color: rgba(143,168,150,.5); letter-spacing: .08em; }
+.footer-col h5 { font-size: .72rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; color: var(--white); margin-bottom: 20px; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col a { font-size: .84rem; color: var(--gray); text-decoration: none; transition: color .2s; display: flex; align-items: center; gap: 6px; }
+.footer-col a:hover { color: var(--green-light); }
+.footer-col a::before { content: '—'; opacity: .3; font-size: .7rem; }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 24px; border-top: 1px solid var(--border); gap: 16px; flex-wrap: wrap; }
+.footer-bottom p { font-size: .76rem; color: rgba(143,168,150,.5); }
+.footer-bottom-links { display: flex; gap: 24px; }
+.footer-bottom-links a { font-size: .76rem; color: rgba(143,168,150,.5); text-decoration: none; transition: color .2s; }
+.footer-bottom-links a:hover { color: var(--gray); }
+
+/* === FLOATING WHATSAPP === */
+.float-whatsapp { position: fixed; bottom: 28px; right: 28px; z-index: 999; width: 60px; height: 60px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,.5); text-decoration: none; transition: all .25s; animation: floatWA 3s ease-in-out infinite; }
+.float-whatsapp:hover { background: #20ba59; transform: scale(1.1); }
+@keyframes floatWA { 0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.5);} 50%{box-shadow:0 4px 38px rgba(37,211,102,.8);} }
+.float-whatsapp svg { width: 30px; height: 30px; color: #fff; }
+.float-whatsapp .wa-tooltip { position: absolute; right: 72px; background: rgba(7,11,9,.95); color: var(--white); font-size: .76rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; padding: 8px 14px; border-radius: 4px; border: 1px solid var(--border); opacity: 0; pointer-events: none; transform: translateX(8px); transition: all .2s; }
+.float-whatsapp:hover .wa-tooltip { opacity: 1; transform: translateX(0); }
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+  .kpi-grid { grid-template-columns: repeat(2,1fr); }
+  .kpi-item:nth-child(2) { border-right: none; }
+  .kpi-item:nth-child(3), .kpi-item:nth-child(4) { border-top: 1px solid var(--border); }
+  .sobre-grid { grid-template-columns: 1fr; gap: 48px; }
+  .sobre-image-wrap { max-width: 600px; }
+  .esp-grid { grid-template-columns: repeat(2,1fr); }
+  .frota-top { grid-template-columns: 1fr; }
+  .cert-grid { grid-template-columns: repeat(3,1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  section { padding: 80px 5%; }
+  .esp-grid { grid-template-columns: 1fr; }
+  .sobre-pillars { grid-template-columns: 1fr; }
+  .frota-tipo-grid { grid-template-columns: 1fr; }
+  .cert-grid { grid-template-columns: repeat(2,1fr); }
+  .mvv-grid { grid-template-columns: 1fr; }
+  .contato-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .conf-divider { display: none; }
+  .estrutura-grid { grid-template-columns: 1fr; }
+  .cta-inner { flex-direction: column; align-items: flex-start; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+  .hero-scroll-hint { display: none; }
+  .pin-section { height: auto; }
+  .pin-sticky { position: relative; height: auto; padding: 80px 0; }
+  .pin-step { position: relative; opacity: 1; pointer-events: auto; padding: 40px 5%; }
+  .pin-progress { display: none; }
+}
+@media (max-width: 480px) {
+  .kpi-grid { grid-template-columns: 1fr 1fr; }
+  .cert-grid { grid-template-columns: 1fr 1fr; }
+  .hero-actions { flex-direction: column; }
+  .cta-actions { flex-direction: column; width: 100%; }
+  .btn-white, .btn-outline-white { justify-content: center; }
+  .sobre-badge { left: 8px; bottom: -14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+</style>
 </head>
-<body class="bg-white text-slate-800">
+<body>
 
-  <!-- Header -->
-  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b">
-    <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
-      <a href="#home" class="flex items-center gap-3" aria-label="Página inicial ChavesLog">
-        <img src="img/logo-chaveslog-oficial.png" alt="ChavesLog Transportes" class="h-9 w-auto"/>
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#home" class="nav-logo">
+    <img src="img/logo-chaveslog-oficial.png" alt="ChavesLog Transportes" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <span style="display:none;font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:900;color:#fff;letter-spacing:.05em;">CHAVES<span style="color:#f0b429;">LOG</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#especialidades">Especialidades</a></li>
+    <li><a href="#frota">Frota</a></li>
+    <li><a href="#certificacoes">Certificações</a></li>
+    <li><a href="#historia">História</a></li>
+    <li><a href="#contato" class="nav-cta">Fale Conosco</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#sobre" onclick="toggleMenu()">Sobre</a>
+  <a href="#especialidades" onclick="toggleMenu()">Especialidades</a>
+  <a href="#frota" onclick="toggleMenu()">Frota</a>
+  <a href="#certificacoes" onclick="toggleMenu()">Certificações</a>
+  <a href="#historia" onclick="toggleMenu()">História</a>
+  <a href="#contato" onclick="toggleMenu()">Fale Conosco</a>
+</div>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-layer hero-bg" id="heroBg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow two"></div>
+  <svg class="hero-road" viewBox="0 0 1440 300" preserveAspectRatio="none">
+    <path d="M-50,280 Q400,180 720,210 T1490,140"/>
+    <path d="M-50,300 Q400,210 720,240 T1490,180" style="opacity:.18;animation-delay:-1.2s"/>
+  </svg>
+  <div class="hero-content" id="heroContent">
+    <div class="hero-badge">Desde 1997 · Nova Odessa/SP</div>
+    <h1 class="hero-title">
+      <span class="line"><span>27 anos movendo</span></span>
+      <span class="line"><span>o <em>agronegócio</em></span></span>
+      <span class="line"><span>do Brasil.</span></span>
+    </h1>
+    <p class="hero-subtitle">Especialistas em transporte rodoviário de granéis sólidos — açúcar VHP, fertilizantes, soja, milho, calcário, gesso, minérios e resíduos. Frota rastreada 24/7, conformidade ANTT e certificações ambientais.</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/5519992663933?text=Olá%2C%20gostaria%20de%20uma%20cotação%20de%20frete" class="btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.994 0C5.373 0 0 5.373 0 11.994c0 2.117.554 4.1 1.524 5.822L0 24l6.335-1.502A11.945 11.945 0 0011.994 24C18.615 24 24 18.627 24 12.006 24 5.373 18.615 0 11.994 0zm0 21.818a9.828 9.828 0 01-5.013-1.371l-.36-.214-3.724.883.9-3.638-.235-.373a9.818 9.818 0 01-1.505-5.311c0-5.415 4.406-9.82 9.82-9.82s9.82 4.405 9.82 9.82c.007 5.414-4.398 9.824-9.703 9.824z"/></svg>
+        Solicitar Cotação
       </a>
-      <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="#sobre" class="hover:text-emerald-700">Sobre</a>
-        <a href="#historia" class="hover:text-emerald-700">História</a>
-        <a href="#estrutura" class="hover:text-emerald-700">Estrutura</a>
-        <a href="#certificacoes" class="hover:text-emerald-700">Certificações</a>
-        <a href="#noticias" class="hover:text-emerald-700">Notícias</a>
-        <a href="#contato" class="hover:text-emerald-700">Contato</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Hero -->
-  <section class="relative overflow-hidden" id="home">
-    <div class="absolute inset-0 -z-10 bg-gradient-to-r from-emerald-800 via-emerald-700 to-emerald-900"></div>
-    <div class="mx-auto max-w-7xl px-4 py-24 text-white text-center">
-      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
-        27 anos transportando granéis com 
-        <span style="color:var(--brand-yellow)">segurança</span> 
-        e <span class="underline decoration-emerald-400">eficiência</span>.
-      </h1>
-      <p class="mt-4 md:text-lg text-white/90">
-        Especialistas em açúcar VHP, fertilizantes, soja, milho, calcário agrícola, gesso agrícola, minérios e resíduos. 
-        Frota 100% rastreada, conformidade ANTT e certificações ambientais.
-      </p>
-      <a href="#contato" class="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-slate-900 font-semibold hover:bg-slate-100 transition">
-        Solicitar Orçamento
+      <a href="#sobre" class="btn-secondary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Conheça a Empresa
       </a>
     </div>
-  </section>
+  </div>
+  <div class="hero-scroll-hint"><div class="scroll-mouse"></div>Role para explorar</div>
+</section>
 
-  <!-- Diferenciais -->
-  <section class="py-12 bg-gradient-to-r from-emerald-50 to-green-50 border-y">
-    <div class="mx-auto max-w-7xl px-4">
-      <div class="grid md:grid-cols-4 gap-6 text-center">
-        <div class="card-hover">
-          <div class="text-3xl mb-2">🚚</div>
-          <h3 class="font-bold text-slate-900">Frota Moderna</h3>
-          <p class="text-sm text-slate-600 mt-1">Idade média &lt; 3 anos</p>
-        </div>
-        <div class="card-hover">
-          <div class="text-3xl mb-2">📍</div>
-          <h3 class="font-bold text-slate-900">100% Rastreada</h3>
-          <p class="text-sm text-slate-600 mt-1">Localização em tempo real</p>
-        </div>
-        <div class="card-hover">
-          <div class="text-3xl mb-2">✅</div>
-          <h3 class="font-bold text-slate-900">Certificações</h3>
-          <p class="text-sm text-slate-600 mt-1">SASSMAQ e órgãos federais</p>
-        </div>
-        <div class="card-hover">
-          <div class="text-3xl mb-2">🛡️</div>
-          <h3 class="font-bold text-slate-900">Conformidade ANTT</h3>
-          <p class="text-sm text-slate-600 mt-1">Todas as licenças obrigatórias</p>
-        </div>
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Açúcar VHP&nbsp;&nbsp;Fertilizantes&nbsp;&nbsp;Soja&nbsp;&nbsp;Milho&nbsp;&nbsp;Trigo&nbsp;&nbsp;Calcário Agrícola&nbsp;&nbsp;Gesso&nbsp;&nbsp;Minérios&nbsp;&nbsp;Resíduos&nbsp;&nbsp;Rodocaçamba&nbsp;&nbsp;Bicaçamba</span>
+    <span>Açúcar VHP&nbsp;&nbsp;Fertilizantes&nbsp;&nbsp;Soja&nbsp;&nbsp;Milho&nbsp;&nbsp;Trigo&nbsp;&nbsp;Calcário Agrícola&nbsp;&nbsp;Gesso&nbsp;&nbsp;Minérios&nbsp;&nbsp;Resíduos&nbsp;&nbsp;Rodocaçamba&nbsp;&nbsp;Bicaçamba</span>
+  </div>
+</div>
+
+<!-- KPI -->
+<div class="kpi-strip">
+  <div class="kpi-grid">
+    <div class="kpi-item">
+      <svg class="kpi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <div class="kpi-number" data-count="98.7" data-suffix="%"><span>0</span>%</div>
+      <div class="kpi-label">OTIF</div><div class="kpi-desc">On Time In Full</div>
+    </div>
+    <div class="kpi-item">
+      <svg class="kpi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <div class="kpi-number">24<span>/7</span></div>
+      <div class="kpi-label">Monitoramento</div><div class="kpi-desc">Rastreamento contínuo</div>
+    </div>
+    <div class="kpi-item">
+      <svg class="kpi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25"/></svg>
+      <div class="kpi-number">+<span data-count="1000" data-suffix="">0</span></div>
+      <div class="kpi-label">Viagens/Mês</div><div class="kpi-desc">Operações mensais</div>
+    </div>
+    <div class="kpi-item">
+      <svg class="kpi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5"/></svg>
+      <div class="kpi-number">~1M<span> t</span></div>
+      <div class="kpi-label">Volume/Ano</div><div class="kpi-desc">Toneladas transportadas</div>
+    </div>
+  </div>
+</div>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="sobre-grid">
+    <div class="sobre-text">
+      <div class="section-header">
+        <div class="section-tag reveal">Quem Somos</div>
+        <h2 class="section-title reveal reveal-d1">Uma transportadora<br><em>construída</em> pela<br>experiência.</h2>
+        <p class="section-subtitle reveal reveal-d2">Fundada em 1997 em Americana/SP, a ChavesLog rapidamente se especializou no transporte rodoviário de granéis sólidos, tornando-se referência no setor.</p>
+      </div>
+      <div class="sobre-pillars">
+        <div class="pillar reveal reveal-d1"><div class="pillar-icon">🏢</div><h4>Sede Própria</h4><p>Pátio de 15.000 m² em Nova Odessa/SP</p></div>
+        <div class="pillar reveal reveal-d2"><div class="pillar-icon">🛡️</div><h4>Conformidade</h4><p>ANTT, piso mínimo, vale-pedágio e seguros</p></div>
+        <div class="pillar reveal reveal-d3"><div class="pillar-icon">📡</div><h4>Tecnologia</h4><p>Frota 100% rastreada em tempo real</p></div>
+        <div class="pillar reveal reveal-d4"><div class="pillar-icon">🌿</div><h4>Certificações</h4><p>SASSMAQ, IBAMA, CETESB e licenças</p></div>
       </div>
     </div>
-  </section>
+    <div class="sobre-visual reveal-scale reveal-d1">
+      <div class="sobre-image-wrap">
+        <img src="img/hero-granel.jpg" alt="Frota ChavesLog Transportes">
+        <div class="sobre-badge"><strong>27</strong><span>Anos de mercado</span></div>
+        <div class="sobre-accent"></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- Quem somos -->
-  <section id="sobre" class="py-16">
-    <div class="mx-auto max-w-7xl px-4 grid md:grid-cols-2 gap-10 items-start">
+<!-- PINNED SCROLL NARRATIVE -->
+<div class="pin-section" id="pinSection">
+  <div class="pin-sticky">
+    <div class="pin-bg" id="pinBg"></div>
+    <div class="pin-content">
+      <div class="pin-step active" data-step="0">
+        <div class="big-num"><em>27</em></div>
+        <h3>Anos de estrada</h3>
+        <p>Quase três décadas transportando o que move o agronegócio brasileiro, com a mesma exigência do primeiro dia.</p>
+      </div>
+      <div class="pin-step" data-step="1">
+        <div class="big-num"><em>15.000</em>m²</div>
+        <h3>Pátio operacional próprio</h3>
+        <p>Estrutura completa com oficina própria, manutenção preventiva e torre de controle operacional 24 horas.</p>
+      </div>
+      <div class="pin-step" data-step="2">
+        <div class="big-num"><em>100</em>%</div>
+        <h3>Frota rastreada</h3>
+        <p>Cada veículo monitorado em tempo real, aprovado pelas principais gerenciadoras de risco do mercado.</p>
+      </div>
+      <div class="pin-step" data-step="3">
+        <div class="big-num"><em>+1</em>M&nbsp;t</div>
+        <h3>Transportadas por ano</h3>
+        <p>Capacidade operacional de alta exigência, atendendo clientes em todo o território nacional.</p>
+      </div>
+    </div>
+    <div class="pin-progress">
+      <div class="pin-dot active"></div><div class="pin-dot"></div><div class="pin-dot"></div><div class="pin-dot"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ESPECIALIDADES -->
+<section id="especialidades">
+  <div class="container">
+    <div class="section-header" style="text-align:center;max-width:640px;margin:0 auto 64px;">
+      <div class="section-tag reveal" style="justify-content:center;">Especialidades</div>
+      <h2 class="section-title reveal reveal-d1">O que <em>transportamos</em></h2>
+      <p class="section-subtitle reveal reveal-d2" style="margin:16px auto 0;">Granéis sólidos com equipamentos especializados, equipes treinadas e total conformidade regulatória.</p>
+    </div>
+    <div class="esp-grid">
+      <div class="esp-card reveal reveal-d1"><span class="esp-icon">🍬</span><h3>Açúcar VHP</h3><p>Transporte especializado com rigoroso controle de qualidade, higiene e rastreabilidade total.</p></div>
+      <div class="esp-card reveal reveal-d2"><span class="esp-icon">🌿</span><h3>Fertilizantes</h3><p>Calcário agrícola, gesso e fertilizantes com conformidade ambiental e de segurança.</p></div>
+      <div class="esp-card reveal reveal-d3"><span class="esp-icon">🌾</span><h3>Grãos & Cereais</h3><p>Soja, milho, trigo e outros cereais com total cuidado, higiene e eficiência.</p></div>
+      <div class="esp-card reveal reveal-d1"><span class="esp-icon">⛏️</span><h3>Minérios</h3><p>Minérios e concentrados com estrutura adequada e segurança operacional.</p></div>
+      <div class="esp-card reveal reveal-d2"><span class="esp-icon">♻️</span><h3>Resíduos Industriais</h3><p>Licenças IBAMA e CETESB para transporte conforme legislação ambiental vigente.</p></div>
+      <div class="esp-card reveal reveal-d3"><span class="esp-icon">🔩</span><h3>Matérias-Primas</h3><p>Insumos e matérias-primas para indústria com operações customizadas.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONFORMIDADE -->
+<div id="conformidade">
+  <div class="conf-inner">
+    <div class="conf-left"><h2>Conformidade<br>Regulatória</h2><p>100% em dia com todas as<br>exigências ANTT e ambientais</p></div>
+    <div class="conf-divider"></div>
+    <div class="conf-tags">
+      <span class="conf-tag">ANTT</span><span class="conf-tag">Piso Mínimo de Frete</span><span class="conf-tag">Vale-Pedágio</span><span class="conf-tag">Gerenc. de Risco</span><span class="conf-tag">RCV</span><span class="conf-tag">RCTR-C</span><span class="conf-tag">RC-DC</span><span class="conf-tag">Motoristas Homologados</span><span class="conf-tag">Veículos Aprovados</span>
+    </div>
+  </div>
+</div>
+
+<!-- FROTA -->
+<section id="frota">
+  <div class="frota-inner">
+    <div class="section-header">
+      <div class="section-tag reveal">Frota & Operação</div>
+      <h2 class="section-title reveal reveal-d1">Moderna, rastreada<br>e <em>sempre disponível.</em></h2>
+      <p class="section-subtitle reveal reveal-d2">Frota própria e agregada, com monitoramento contínuo e manutenção preventiva rigorosa.</p>
+    </div>
+    <div class="frota-top">
       <div>
-        <h2 class="text-3xl font-extrabold text-slate-900">Quem somos</h2>
-        <p class="mt-4 text-slate-600">A <strong>ChavesLog Transportes</strong> atua há <strong>27 anos</strong> no transporte rodoviário de cargas a granel, oferecendo soluções seguras, eficientes e sustentáveis. Atendemos aos segmentos de açúcar VHP, fertilizantes, soja, milho, calcário agrícola, gesso agrícola, minérios e resíduos.</p>
-        <p class="mt-4 text-slate-600">Contamos com frota própria e agregada composta por <strong>rodocaçambas</strong> e <strong>bicaçambas</strong>, todos equipados com rastreamento em tempo real. Veículos e motoristas são homologados pelas principais gerenciadoras de risco, garantindo confiabilidade total em cada operação.</p>
-        <p class="mt-4 text-slate-600">Estamos em conformidade com as normas da <strong>ANTT</strong>, incluindo piso mínimo do frete, vale-pedágio, seguro <strong>RCV</strong>, <strong>RCTR-C</strong> e <strong>RCF-DC</strong>, além de demais exigências regulatórias. Nosso novo pátio de <strong>15.000 m²</strong> conta com oficina própria de ponta e profissionais comprometidos com qualidade, segurança e eficiência.</p>
+        <div class="frota-tipo-grid">
+          <div class="frota-tipo reveal reveal-d1"><h4>Rodocaçamba</h4><p>Configuração ideal para grandes volumes de granéis sólidos com eficiência operacional máxima.</p></div>
+          <div class="frota-tipo reveal reveal-d2"><h4>Bicaçamba</h4><p>Alta capacidade de carga para granéis volumosos, com basculamento conforme a operação.</p></div>
+        </div>
+        <div class="frota-features">
+          <div class="frota-feature reveal reveal-d1">
+            <div class="frota-feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><h4>Rastreamento em Tempo Real</h4><p>Toda frota equipada com GPS e monitoramento contínuo 24/7.</p></div>
+          </div>
+          <div class="frota-feature reveal reveal-d2">
+            <div class="frota-feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+            <div><h4>Gerenciadoras de Risco</h4><p>Veículos e motoristas aprovados pelas principais gerenciadoras do mercado.</p></div>
+          </div>
+          <div class="frota-feature reveal reveal-d3">
+            <div class="frota-feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3"/></svg></div>
+            <div><h4>Manutenção Preventiva</h4><p>Oficina própria com plano rigoroso, garantindo disponibilidade e segurança.</p></div>
+          </div>
+        </div>
       </div>
+      <div class="frota-image-area reveal-scale reveal-d2">
+        <img src="img/frota-exemplo.jpg" alt="Frota de rodocaçambas e bicaçambas ChavesLog" onerror="this.src='img/hero-granel.jpg'">
+        <div class="frota-overlay-text"><h3>Pátio Operacional</h3><p>15.000 m² — Nova Odessa/SP</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESTRUTURA -->
+<section id="estrutura">
+  <div class="estrutura-inner">
+    <div class="estrutura-grid">
       <div>
-        <h3 class="text-2xl font-bold text-slate-800">Missão</h3>
-        <p class="text-slate-600 mt-2">Prover soluções logísticas em transporte a granel com segurança, pontualidade e sustentabilidade, gerando valor para clientes, colaboradores e sociedade.</p>
-        <h3 class="text-2xl font-bold text-slate-800 mt-6">Visão</h3>
-        <p class="text-slate-600 mt-2">Ser reconhecida nacionalmente como referência em transporte de granéis sólidos, destacando-se pela excelência operacional, inovação tecnológica e responsabilidade socioambiental.</p>
-        <h3 class="text-2xl font-bold text-slate-800 mt-6">Valores</h3>
-        <ul class="mt-2 text-slate-600 list-disc list-inside">
-          <li>Segurança em primeiro lugar</li>
-          <li>Ética e transparência</li>
-          <li>Qualidade e pontualidade</li>
-          <li>Respeito ao meio ambiente</li>
-          <li>Valorização das pessoas</li>
-          <li>Inovação constante</li>
-        </ul>
+        <div class="section-header">
+          <div class="section-tag reveal">Infraestrutura</div>
+          <h2 class="section-title reveal reveal-d1">Estrutura própria<br><em>de ponta.</em></h2>
+          <p class="section-subtitle reveal reveal-d2">Nova sede com estrutura e equipamentos modernos para suporte completo às operações.</p>
+        </div>
+        <div class="estrutura-stats">
+          <div class="est-stat reveal reveal-d1"><div class="est-stat-num">15K</div><div class="est-stat-label">m² de área total</div></div>
+          <div class="est-stat reveal reveal-d2"><div class="est-stat-num">24h</div><div class="est-stat-label">Controle operacional</div></div>
+          <div class="est-stat reveal reveal-d3"><div class="est-stat-num">27</div><div class="est-stat-label">Anos de expertise</div></div>
+          <div class="est-stat reveal reveal-d4"><div class="est-stat-num">100%</div><div class="est-stat-label">Frota rastreada</div></div>
+        </div>
+        <div class="estrutura-items reveal reveal-d2">
+          <div class="est-item">Oficina própria com equipamentos modernos</div>
+          <div class="est-item">Área de manutenção preventiva e corretiva</div>
+          <div class="est-item">Abastecimento e suporte à frota</div>
+          <div class="est-item">Torre de controle operacional 24h</div>
+          <div class="est-item">Área administrativa integrada</div>
+          <div class="est-item">Acesso controlado e pátio seguro</div>
+        </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Produtos e Serviços -->
-  <section class="py-16 bg-slate-50 border-y">
-    <div class="mx-auto max-w-7xl px-4">
-      <h2 class="text-3xl font-extrabold text-slate-900 text-center">Produtos e Serviços</h2>
-      <p class="text-center text-slate-600 mt-2 max-w-2xl mx-auto">Transportamos diversos tipos de cargas a granel com equipamentos especializados e equipes treinadas.</p>
-      <div class="mt-10 grid md:grid-cols-3 gap-6">
-        <div class="bg-white rounded-2xl p-6 border shadow-sm card-hover">
-          <div class="text-4xl mb-3">🍬</div>
-          <h3 class="font-bold text-lg text-slate-900">Açúcar VHP</h3>
-          <p class="text-slate-600 text-sm mt-2">Especialistas em transporte de açúcar VHP com manutenção de temperatura e rastreabilidade.</p>
-        </div>
-        <div class="bg-white rounded-2xl p-6 border shadow-sm card-hover">
-          <div class="text-4xl mb-3">🌾</div>
-          <h3 class="font-bold text-lg text-slate-900">Grãos e Cereais</h3>
-          <p class="text-slate-600 text-sm mt-2">Soja, milho, trigo e outros cereais com total cuidado e higiene durante transporte.</p>
-        </div>
-        <div class="bg-white rounded-2xl p-6 border shadow-sm card-hover">
-          <div class="text-4xl mb-3">🧪</div>
-          <h3 class="font-bold text-lg text-slate-900">Fertilizantes</h3>
-          <p class="text-slate-600 text-sm mt-2">Calcário agrícola, gesso e outros insumos para agricultura com conformidade regulatória.</p>
-        </div>
-        <div class="bg-white rounded-2xl p-6 border shadow-sm card-hover">
-          <div class="text-4xl mb-3">⛏️</div>
-          <h3 class="font-bold text-lg text-slate-900">Minérios</h3>
-          <p class="text-slate-600 text-sm mt-2">Transporte de minérios e concentrados com segurança e eficiência operacional.</p>
-        </div>
-        <div class="bg-white rounded-2xl p-6 border shadow-sm card-hover">
-          <div class="text-4xl mb-3">♻️</div>
-          <h3 class="font-bold text-lg text-slate-900">Resíduos Industriais</h3>
-          <p class="text-slate-600 text-sm mt-2">Temos licenças e certificações para transporte de resíduos conforme legislação.</p>
-        </div>
-        <div class="bg-white rounded-2xl p-6 border shadow-sm card-hover">
-          <div class="text-4xl mb-3">📍</div>
-          <h3 class="font-bold text-lg text-slate-900">Rastreamento Real Time</h3>
-          <p class="text-slate-600 text-sm mt-2">Toda frota equipada com GPS para acompanhamento 24/7 de suas cargas.</p>
+      <div class="estrutura-map reveal-scale reveal-d2">
+        <iframe src="https://maps.google.com/maps?q=-22.768984730836888,-47.27463853295079&t=&z=16&ie=UTF8&iwloc=&output=embed" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Pátio Operacional ChavesLog"></iframe>
+        <div class="map-caption">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Av. Marginal, 95 — Nova Odessa/SP</span>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=-22.768984730836888,-47.27463853295079" target="_blank" rel="noopener">Ver Rota →</a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- História e Especialização -->
-  <section id="historia" class="py-16 bg-slate-50 border-y">
-    <div class="mx-auto max-w-7xl px-4 grid md:grid-cols-2 gap-10 items-start">
-      <div>
-        <h2 class="text-3xl font-extrabold text-slate-900">História e especialização</h2>
-        <p class="mt-4 text-slate-600">
-          A <strong>Chaveslog</strong> é uma empresa de transportes e logística, com sede em <strong>Nova Odessa/SP</strong>, que atua no transporte de cargas em granéis sólidos.
-          Fundada em 1997 em Americana/SP, se especializou no transporte de produtos agrícolas e matérias-primas.
-        </p>
-        <p class="mt-4 text-slate-600">
-          <strong>Início e crescimento:</strong> Em 2006, estabeleceu sua sede própria em Nova Odessa, com ampla área para manutenção, abastecimento e administração. Em 2025 mudamos para nossa nova sede, com uma área de 15.000m² com estrutura e equipamentos de ponta.
-        </p>
-        <p class="mt-4 text-slate-600">
-          <strong>Segmento de atuação:</strong> Originalmente, a Chaveslog transportava óleo preto, mas rapidamente se concentrou no transporte de granéis sólidos, utilizando caminhões basculantes.
-        </p>
-        <p class="mt-4 text-slate-600">
-          <strong>Produtos transportados:</strong> Atualmente, a empresa transporta matérias-primas para fertilizantes e produtos agrícolas, como açúcar, soja, milho e trigo.
-        </p>
-      </div>
-      <div>
-        <h3 class="text-2xl font-bold text-slate-800">Qualidade e Frota</h3>
-        <p class="mt-4 text-slate-600">
-          <strong>Certificação:</strong> A Chaveslog possui a certificação <strong>SASSMAQ</strong>, que atesta conformidade com altos padrões de saúde, segurança, meio ambiente e qualidade.
-        </p>
-        <p class="mt-4 text-slate-600">
-          <strong>Frota moderna:</strong> A empresa mantém uma frota com idade média inferior a três anos, equipada com tecnologia avançada para garantir segurança e eficiência operacional.
-        </p>
-      </div>
+<!-- CERTIFICAÇÕES -->
+<section id="certificacoes">
+  <div class="cert-inner">
+    <div class="section-header" style="text-align:center;max-width:600px;margin:0 auto 64px;">
+      <div class="section-tag reveal" style="justify-content:center;">Certificações</div>
+      <h2 class="section-title reveal reveal-d1">Conformidade e<br><em>excelência</em> comprovadas.</h2>
+      <p class="section-subtitle reveal reveal-d2" style="margin:16px auto 0;">Todas as licenças exigidas pela legislação ambiental, regulatória e de segurança.</p>
     </div>
-  </section>
-
-  <!-- Estrutura -->
-  <section id="estrutura" class="py-16 bg-slate-50 border-y">
-    <div class="mx-auto max-w-7xl px-4">
-      <h2 class="text-3xl font-extrabold text-slate-900">Nossa Estrutura</h2>
-      <p class="mt-4 text-slate-600">Nosso pátio de <strong>15.000 m²</strong> é equipado com oficina própria de última geração, garantindo manutenção preventiva rigorosa, alta disponibilidade da frota e máxima segurança operacional. Essa estrutura nos permite oferecer mais confiabilidade, agilidade e eficiência aos clientes.</p>
+    <div class="cert-grid">
+      <div class="cert-card reveal reveal-d1"><div class="cert-badge">✅</div><h4>SASSMAQ</h4><p>Segurança, Saúde, Meio Ambiente e Qualidade</p></div>
+      <div class="cert-card reveal reveal-d2"><div class="cert-badge">🪖</div><h4>CR Exército</h4><p>Certificação Registral do Exército Brasileiro</p></div>
+      <div class="cert-card reveal reveal-d3"><div class="cert-badge">🔒</div><h4>Polícia Civil</h4><p>Licença para transporte de materiais controlados</p></div>
+      <div class="cert-card reveal reveal-d4"><div class="cert-badge">🌿</div><h4>CETESB</h4><p>Certificado de Dispensa — Ambiental SP</p></div>
+      <div class="cert-card reveal reveal-d4"><div class="cert-badge">🌎</div><h4>IBAMA</h4><p>Instituto Brasileiro do Meio Ambiente</p></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Certificações -->
-  <section id="certificacoes" class="py-16">
-    <div class="mx-auto max-w-7xl px-4">
-      <h2 class="text-3xl font-extrabold text-slate-900">Certificações e conformidade</h2>
-      <div class="mt-6 grid md:grid-cols-2 gap-4">
-        <div class="flex gap-3">
-          <div class="text-2xl">✅</div>
-          <div>
-            <strong>SASMAQ</strong>
-            <p class="text-sm text-slate-600">Sistema de Avaliação de Segurança, Saúde, Meio Ambiente e Qualidade</p>
-          </div>
-        </div>
-        <div class="flex gap-3">
-          <div class="text-2xl">✅</div>
-          <div>
-            <strong>CR do Exército</strong>
-            <p class="text-sm text-slate-600">Certificação Registral</p>
-          </div>
-        </div>
-        <div class="flex gap-3">
-          <div class="text-2xl">✅</div>
-          <div>
-            <strong>Licença da Polícia Civil</strong>
-            <p class="text-sm text-slate-600">Autorização para transporte de materiais</p>
-          </div>
-        </div>
-        <div class="flex gap-3">
-          <div class="text-2xl">✅</div>
-          <div>
-            <strong>Certificado de Dispensa da CETESB</strong>
-            <p class="text-sm text-slate-600">Companhia Ambiental do Estado</p>
-          </div>
-        </div>
-        <div class="flex gap-3">
-          <div class="text-2xl">✅</div>
-          <div>
-            <strong>Certificação do IBAMA</strong>
-            <p class="text-sm text-slate-600">Instituto Brasileiro do Meio Ambiente</p>
-          </div>
-        </div>
-      </div>
+<!-- HISTÓRIA -->
+<section id="historia">
+  <div class="historia-inner">
+    <div class="section-header">
+      <div class="section-tag reveal">Trajetória</div>
+      <h2 class="section-title reveal reveal-d1">Quase três décadas<br>de <em>evolução.</em></h2>
     </div>
-  </section>
-
-  <!-- CTA Premium -->
-  <section class="py-16">
-    <div class="mx-auto max-w-7xl px-4">
-      <div class="rounded-3xl brand-gradient text-white p-10 md:p-16">
-        <div class="grid md:grid-cols-3 gap-8 text-center">
-          <div>
-            <div class="text-4xl mb-2">🚚</div>
-            <h3 class="text-xl font-bold">27 Anos</h3>
-            <p class="text-white/80 mt-1 text-sm">De experiência comprovada</p>
-          </div>
-          <div>
-            <div class="text-4xl mb-2">✅</div>
-            <h3 class="text-xl font-bold">Frota Moderna</h3>
-            <p class="text-white/80 mt-1 text-sm">100% rastreada e certificada</p>
-          </div>
-          <div>
-            <div class="text-4xl mb-2">🛡️</div>
-            <h3 class="text-xl font-bold">Segurança Total</h3>
-            <p class="text-white/80 mt-1 text-sm">ANTT + Certificações ambientais</p>
-          </div>
-        </div>
-        <div class="mt-8 text-center">
-          <p class="text-white/90 mb-4">Precisando de transporte confiável?</p>
-          <a href="https://wa.me/5519992663933?text=Ol%C3%A1%2C%20gostaria%20de%20uma%20cota%C3%A7%C3%A3o%20de%20frete" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-slate-900 font-semibold hover:bg-slate-100 transition">
-            💬 Falar no WhatsApp
-          </a>
-        </div>
-      </div>
+    <div class="timeline" id="timeline">
+      <div class="timeline-line"></div>
+      <div class="timeline-line-fill" id="timelineFill"></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">1997</div><h4>Fundação em Americana/SP</h4><p>Início das operações com transporte de óleo preto. Os primeiros passos de uma empresa que se tornaria referência no setor.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">Anos 2000</div><h4>Especialização em Granéis</h4><p>Transição para o transporte de granéis sólidos com veículos basculantes. Foco em açúcar VHP, fertilizantes e produtos agrícolas.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">2006</div><h4>Sede Própria em Nova Odessa</h4><p>Estabelecimento da sede própria com ampla estrutura para manutenção, abastecimento e administração — marco de consolidação.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">2010–2020</div><h4>Crescimento e Certificações</h4><p>Expansão da frota, certificação SASSMAQ, licenças ambientais e aprovação nas principais gerenciadoras de risco.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">2025</div><h4>Nova Sede — 15.000 m²</h4><p>Inauguração da nova sede com oficina de ponta e estrutura completa para suporte à operação e à frota.</p></div>
     </div>
-  </section>
-
-  <!-- CTA Original (mantido para compatibilidade) -->
-  <section class="py-16" style="display:none">
-    <div class="mx-auto max-w-7xl px-4">
-      <div class="rounded-3xl brand-gradient text-white p-10 md:p-16">
-        <div class="md:flex items-center justify-between gap-8">
-          <div class="max-w-xl">
-            <h3 class="text-2xl md:text-3xl font-extrabold">Precisa de transporte de granéis?</h3>
-            <p class="mt-2 text-white/90">Conte com um time que entende a operação end-to-end e entrega com confiabilidade.</p>
-          </div>
-          <a href="https://wa.me/5519992663933?text=Ol%C3%A1%2C%20gostaria%20de%20uma%20cota%C3%A7%C3%A3o%20de%20frete" class="mt-6 md:mt-0 inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-slate-900 font-semibold">Falar no WhatsApp</a>
-        </div>
-      </div>
+    <div class="mvv-grid">
+      <div class="mvv-card reveal reveal-d1"><h3>Missão</h3><p>Prover soluções logísticas em transporte a granel com segurança, pontualidade e sustentabilidade, gerando valor para clientes, colaboradores e sociedade.</p></div>
+      <div class="mvv-card reveal reveal-d2"><h3>Visão</h3><p>Ser reconhecida nacionalmente como referência em transporte de granéis sólidos, destacando-se pela excelência operacional e responsabilidade socioambiental.</p></div>
+      <div class="mvv-card reveal reveal-d3"><h3>Valores</h3><ul><li>Segurança em primeiro lugar</li><li>Ética e transparência</li><li>Respeito às pessoas</li><li>Compromisso com resultados</li><li>Sustentabilidade</li><li>Excelência operacional</li></ul></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Blog/Notícias -->
-  <section class="py-16" id="noticias">
-    <div class="mx-auto max-w-7xl px-4">
-      <div class="mb-10">
-        <h2 class="text-3xl font-extrabold text-slate-900">Notícias & Insights</h2>
-        <p class="text-slate-600 mt-2">Fique atualizado com as últimas novidades do setor agrícola, logística e regulamentações de transporte.</p>
+<!-- CTA BAND -->
+<div id="cta-band">
+  <div class="cta-inner">
+    <div class="cta-text"><h2>Precisa de transporte<br>confiável de granéis?</h2><p>Cotação rápida · Frota disponível · Operação imediata</p></div>
+    <div class="cta-actions">
+      <a href="https://wa.me/5519992663933?text=Olá%2C%20gostaria%20de%20uma%20cotação%20de%20frete" class="btn-white">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.994 0C5.373 0 0 5.373 0 11.994c0 2.117.554 4.1 1.524 5.822L0 24l6.335-1.502A11.945 11.945 0 0011.994 24C18.615 24 24 18.627 24 12.006 24 5.373 18.615 0 11.994 0zm0 21.818a9.828 9.828 0 01-5.013-1.371l-.36-.214-3.724.883.9-3.638-.235-.373a9.818 9.818 0 01-1.505-5.311c0-5.415 4.406-9.82 9.82-9.82s9.82 4.405 9.82 9.82c.007 5.414-4.398 9.824-9.703 9.824z"/></svg>
+        WhatsApp
+      </a>
+      <a href="tel:5519992663933" class="btn-outline-white">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.86 7.86 2 2 0 015.82 5.64h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.91 13.5a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        (19) 99266-3933
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="contato-inner">
+    <div class="section-header" style="margin-bottom:48px;">
+      <div class="section-tag reveal">Contato</div>
+      <h2 class="section-title reveal reveal-d1">Solicite sua<br><em>cotação.</em></h2>
+      <p class="section-subtitle reveal reveal-d2">Atendimento personalizado para cada operação.</p>
+    </div>
+    <div class="contato-grid">
+      <div class="contato-info reveal">
+        <div class="contato-card">
+          <h4>Escritório Administrativo</h4>
+          <div class="contato-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Rua Haiti, 15 — Americana/SP — CEP 13465-681</div>
+          <div class="contato-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.86 7.86 2 2 0 015.82 5.64h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.91 13.5a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><a href="tel:5519992663933">(19) 99266-3933</a></div>
+          <div class="contato-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:operacional@chaveslog.com.br">operacional@chaveslog.com.br</a></div>
+          <div class="contato-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/></svg>CNPJ: 02.499.966/0001-40</div>
+        </div>
+        <div class="contato-card">
+          <h4>Pátio Operacional</h4>
+          <div class="contato-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Av. Marginal, 95 — Nova Odessa/SP — CEP 13387-790</div>
+          <div class="contato-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>15.000 m² · Oficina própria · Monitoramento 24h</div>
+        </div>
+        <a href="https://wa.me/5519992663933?text=Olá%2C%20gostaria%20de%20uma%20cotação%20de%20frete" class="whatsapp-btn">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.994 0C5.373 0 0 5.373 0 11.994c0 2.117.554 4.1 1.524 5.822L0 24l6.335-1.502A11.945 11.945 0 0011.994 24C18.615 24 24 18.627 24 12.006 24 5.373 18.615 0 11.994 0zm0 21.818a9.828 9.828 0 01-5.013-1.371l-.36-.214-3.724.883.9-3.638-.235-.373a9.818 9.818 0 01-1.505-5.311c0-5.415 4.406-9.82 9.82-9.82s9.82 4.405 9.82 9.82c.007 5.414-4.398 9.824-9.703 9.824z"/></svg>
+          Falar no WhatsApp agora
+        </a>
       </div>
-      <div class="grid md:grid-cols-3 gap-6" id="noticias-container">
-        <!-- Notícias são carregadas aqui via JavaScript -->
-      </div>
-      <div class="mt-10 text-center">
-        <button class="px-6 py-3 rounded-xl border-2 border-emerald-600 text-emerald-600 font-semibold hover:bg-emerald-50 transition">
-          Ver Mais Notícias →
+      <div class="contato-form reveal reveal-d1">
+        <div class="form-row">
+          <div class="form-group"><label>Nome *</label><input type="text" id="nome" placeholder="Seu nome completo"></div>
+          <div class="form-group"><label>Empresa</label><input type="text" id="empresa" placeholder="Razão social"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>E-mail *</label><input type="email" id="email" placeholder="seu@email.com"></div>
+          <div class="form-group"><label>Telefone / WhatsApp</label><input type="tel" id="telefone" placeholder="(19) 9xxxx-xxxx"></div>
+        </div>
+        <div class="form-group"><label>Tipo de carga</label>
+          <select id="tipo-carga"><option value="">Selecione o produto</option><option>Açúcar VHP</option><option>Fertilizantes</option><option>Soja</option><option>Milho</option><option>Trigo</option><option>Calcário Agrícola</option><option>Gesso Agrícola</option><option>Minérios</option><option>Resíduos Industriais</option><option>Outro</option></select>
+        </div>
+        <div class="form-group"><label>Mensagem</label><textarea id="mensagem" placeholder="Origem, destino, volume, frequência..."></textarea></div>
+        <input class="form-honey" type="text" name="_honey" tabindex="-1" autocomplete="off">
+        <button type="button" class="form-submit" onclick="enviarFormulario()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          Enviar Mensagem
         </button>
       </div>
     </div>
-  </section>
-
-  <!-- Contato -->
-  <section id="contato" class="py-16 bg-slate-50 border-t">
-    <div class="mx-auto max-w-7xl px-4">
-      <div class="text-center mb-10">
-        <h2 class="text-3xl font-extrabold text-slate-900">Entre em Contato</h2>
-        <p class="text-slate-600 mt-2">Preencha o formulário ou entre em contato direto conosco para uma cotação sem compromisso.</p>
-      </div>
-      <div class="grid lg:grid-cols-2 gap-10">
-
-      <!-- Coluna esquerda -->
-      <div class="grid gap-6">
-        <div class="bg-white rounded-2xl p-6 border shadow-sm">
-          <h3 class="font-bold text-lg mb-3">Escritório Administrativo</h3>
-          <div class="text-slate-700 leading-relaxed">
-            <div><span class="font-semibold">Endereço:</span> Rua Haiti, 15 – Americana/SP – CEP 13465-681</div>
-            <div><span class="font-semibold">Telefone/WhatsApp:</span> <a href="https://wa.me/5519992663933" class="underline">(19) 99266-3933</a></div>
-            <div><span class="font-semibold">E-mail:</span> <a href="mailto:operacional@chaveslog.com.br" class="underline">operacional@chaveslog.com.br</a></div>
-            <div><span class="font-semibold">CNPJ:</span> 02.499.966/0001-40</div>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-2xl p-6 border shadow-sm">
-          <h3 class="font-bold text-lg mb-3">Pátio Operacional</h3>
-          <div class="text-slate-700 leading-relaxed">
-            <div><span class="font-semibold">Endereço:</span> Av. Marginal, 95 – Nova Odessa/SP – CEP 13387-790</div>
-            <ul class="mt-2 list-disc list-inside text-sm">
-              <li>Área total: <strong>15.000 m²</strong></li>
-              <li>Oficina própria e manutenção preventiva</li>
-              <li>Acesso monitorado e controle de pátio</li>
-            </ul>
-            <div class="mt-2">
-              <a class="underline" href="https://www.google.com/maps/dir/?api=1&destination=-22.768984730836888,-47.27463853295079" target="_blank" rel="noopener">Ver rota no Google Maps</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Coluna direita -->
-      <div class="grid gap-6">
-
-        <div class="bg-white rounded-2xl overflow-hidden border shadow-sm">
-          <h3 class="font-bold text-lg p-4 border-b">Mapa – Pátio Operacional</h3>
-          <iframe title="Mapa – Pátio Operacional" width="100%" height="300" style="border:0" loading="lazy" allowfullscreen src="https://maps.google.com/maps?q=-22.768984730836888,-47.27463853295079&t=&z=16&ie=UTF8&iwloc=&output=embed"></iframe>
-        </div>
-
-<!-- FORMULÁRIO -->
-<form id="contato-form"
-  class="bg-white rounded-2xl p-6 border shadow-sm grid gap-4"
-  action="/api/contato"
-  method="POST"
-  novalidate>
-
-  <!-- Honeypot -->
-  <div style="position:absolute; left:-5000px; width:1px; height:1px; overflow:hidden;" aria-hidden="true">
-    <label>Não preencher</label>
-    <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
   </div>
+</section>
 
-  <div>
-    <label class="text-sm text-slate-600">Nome</label>
-    <input required name="nome" class="mt-1 w-full rounded-xl border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-600" placeholder="Seu nome">
-  </div>
-
-  <div class="grid md:grid-cols-2 gap-4">
-    <div>
-      <label class="text-sm text-slate-600">E-mail</label>
-      <input required type="email" name="email" class="mt-1 w-full rounded-xl border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-600" placeholder="seu@email.com">
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="img/logo-chaveslog-oficial.png" alt="ChavesLog" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <div style="display:none;font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:900;color:#fff;letter-spacing:.05em;margin-bottom:16px;">CHAVES<span style="color:#f0b429;">LOG</span></div>
+        <p>27 anos de excelência no transporte rodoviário de granéis sólidos. Frota rastreada, conformidade ANTT e certificações ambientais.</p>
+        <p class="footer-cnpj">CNPJ: 02.499.966/0001-40</p>
+      </div>
+      <div class="footer-col"><h5>Empresa</h5><ul><li><a href="#sobre">Quem Somos</a></li><li><a href="#historia">Nossa História</a></li><li><a href="#estrutura">Estrutura</a></li><li><a href="#certificacoes">Certificações</a></li></ul></div>
+      <div class="footer-col"><h5>Serviços</h5><ul><li><a href="#especialidades">Açúcar VHP</a></li><li><a href="#especialidades">Fertilizantes</a></li><li><a href="#especialidades">Grãos & Cereais</a></li><li><a href="#especialidades">Minérios</a></li></ul></div>
+      <div class="footer-col"><h5>Contato</h5><ul><li><a href="tel:5519992663933">(19) 99266-3933</a></li><li><a href="mailto:operacional@chaveslog.com.br">E-mail</a></li><li><a href="https://wa.me/5519992663933">WhatsApp</a></li></ul></div>
     </div>
-    <div>
-      <label class="text-sm text-slate-600">Telefone</label>
-      <input name="telefone" inputmode="numeric" pattern="[0-9\s()+-]*" class="mt-1 w-full rounded-xl border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-600" placeholder="(19) 99266-3933">
+    <div class="footer-bottom">
+      <p>© 2025 ChavesLog Transportes · Todos os direitos reservados.</p>
+      <div class="footer-bottom-links"><a href="#">Privacidade</a><a href="#">Termos</a><a href="#">LGPD</a></div>
     </div>
   </div>
+</footer>
 
-  <div>
-    <label class="text-sm text-slate-600">Mensagem</label>
-    <textarea required name="mensagem" rows="4" class="mt-1 w-full rounded-xl border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-600" placeholder="Conte sobre sua necessidade"></textarea>
-  </div>
-
-  <!-- reCAPTCHA v2 -->
-  <!-- ESTE É O CAMPO QUE PRECISA EXISTIR -->
-  <input type="hidden" id="recaptcha-token" name="g-recaptcha-response" />
-
-  <div class="g-recaptcha"
-       data-sitekey="6LffTvMrAAAAAHmkR4BYANvufG3El2GYu0VqLCn1"
-       data-callback="onRecaptchaOk"
-       data-expired-callback="onRecaptchaExpired"
-       data-error-callback="onRecaptchaError"></div>
-
-  <div class="mt-3 flex justify-end">
-    <button
-      type="submit"
-      id="btn-enviar"
-      class="inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 font-semibold text-white"
-      style="background: var(--brand-green);">
-      Enviar
-    </button>
-  </div>
-</form>
-
-<!-- Carregue o script do reCAPTCHA UMA única vez na página -->
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<a href="https://wa.me/5519992663933?text=Ol%C3%A1%2C%20gostaria%20de%20uma%20cota%C3%A7%C3%A3o%20de%20frete" class="float-whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.994 0C5.373 0 0 5.373 0 11.994c0 2.117.554 4.1 1.524 5.822L0 24l6.335-1.502A11.945 11.945 0 0011.994 24C18.615 24 24 18.627 24 12.006 24 5.373 18.615 0 11.994 0zm0 21.818a9.828 9.828 0 01-5.013-1.371l-.36-.214-3.724.883.9-3.638-.235-.373a9.818 9.818 0 01-1.505-5.311c0-5.415 4.406-9.82 9.82-9.82s9.82 4.405 9.82 9.82c.007 5.414-4.398 9.824-9.703 9.824z"/></svg>
+  <span class="wa-tooltip">Solicitar Cotação</span>
+</a>
 
 <script>
-(function () {
-  // Garante que os elementos existem antes do código rodar
-  const form = document.getElementById('contato-form');
-  const btn  = document.getElementById('btn-enviar');
-  const tokenField = document.getElementById('recaptcha-token');
+const nav = document.getElementById('navbar');
+const progress = document.getElementById('scrollProgress');
+const heroBg = document.getElementById('heroBg');
+const heroContent = document.getElementById('heroContent');
+let ticking = false;
 
-  // Callbacks do reCAPTCHA (o Google chama estes nomes)
-  window.onRecaptchaOk = function (token) {
-    if (tokenField) tokenField.value = token;
-  };
-  window.onRecaptchaExpired = function () {
-    if (tokenField) tokenField.value = '';
-    if (window.grecaptcha) grecaptcha.reset();
-  };
-  window.onRecaptchaError = function () {
-    alert('Erro ao carregar o reCAPTCHA. Tente novamente.');
-  };
+function onScroll() {
+  const y = window.scrollY;
+  const docH = document.documentElement.scrollHeight - window.innerHeight;
+  progress.style.width = (y / docH * 100) + '%';
+  nav.classList.toggle('scrolled', y > 50);
+  const vh = window.innerHeight;
+  if (y < vh) {
+    heroBg.style.transform = 'scale(1.15) translateY(' + (y * 0.35) + 'px)';
+    heroContent.style.transform = 'translateY(' + (y * 0.18) + 'px)';
+    heroContent.style.opacity = Math.max(0, 1 - y / (vh * 0.75));
+  }
+  updatePinSection(y);
+  updateTimeline();
+  ticking = false;
+}
+window.addEventListener('scroll', function(){ if (!ticking){ requestAnimationFrame(onScroll); ticking = true; } }, { passive: true });
 
-  // Validação no submit
-  form.addEventListener('submit', function (e) {
-    const gotcha = form.querySelector('input[name="_gotcha"]');
-    if (gotcha && gotcha.value.trim() !== '') { e.preventDefault(); return; }
+const pinSection = document.getElementById('pinSection');
+const pinBg = document.getElementById('pinBg');
+const pinSteps = document.querySelectorAll('.pin-step');
+const pinDots = document.querySelectorAll('.pin-dot');
+function updatePinSection(y) {
+  if (!pinSection || window.innerWidth <= 768) return;
+  const top = pinSection.offsetTop;
+  const total = pinSection.offsetHeight - window.innerHeight;
+  let prog = (y - top) / total;
+  prog = Math.max(0, Math.min(1, prog));
+  pinBg.style.transform = 'scale(' + (1.2 + prog * 0.15) + ')';
+  pinBg.style.filter = 'brightness(' + (0.4 + prog * 0.15) + ')';
+  const stepCount = pinSteps.length;
+  let active = Math.min(stepCount - 1, Math.floor(prog * stepCount));
+  pinSteps.forEach(function(s, i){ s.classList.toggle('active', i === active); });
+  pinDots.forEach(function(d, i){ d.classList.toggle('active', i === active); });
+}
 
-    if (!tokenField || !tokenField.value) {
-      e.preventDefault();
-      alert('Confirme o reCAPTCHA antes de enviar.');
-      return;
+const timeline = document.getElementById('timeline');
+const timelineFill = document.getElementById('timelineFill');
+function updateTimeline() {
+  if (!timeline) return;
+  const rect = timeline.getBoundingClientRect();
+  const vh = window.innerHeight;
+  const start = vh * 0.7;
+  const fillPct = Math.max(0, Math.min(1, (start - rect.top) / rect.height));
+  timelineFill.style.height = (fillPct * 100) + '%';
+}
+
+function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+document.addEventListener('click', function(e){
+  const menu = document.getElementById('mobileMenu');
+  const ham = document.getElementById('hamburger');
+  if (!menu.contains(e.target) && !ham.contains(e.target)) menu.classList.remove('open');
+});
+
+const revealObserver = new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){ if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.reveal, .reveal-scale, .timeline-item').forEach(function(el){ revealObserver.observe(el); });
+
+function animateCounter(el, target, duration) {
+  duration = duration || 2000;
+  const isDecimal = target % 1 !== 0;
+  const suffix = el.dataset.suffix || '';
+  const start = performance.now();
+  const inner = el.querySelector('span') || el;
+  function update(now) {
+    const p = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - p, 3);
+    const cur = target * eased;
+    inner.textContent = (isDecimal ? cur.toFixed(1) : Math.round(cur)) + suffix;
+    if (p < 1) requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
+const counterObserver = new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if (entry.isIntersecting) {
+      const t = parseFloat(entry.target.dataset.count);
+      if (!isNaN(t)) { animateCounter(entry.target, t); counterObserver.unobserve(entry.target); }
     }
-
-    btn.disabled = true;
-    btn.style.opacity = '0.7';
-    btn.textContent = 'Enviando...';
   });
-})();
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-count]').forEach(function(el){ counterObserver.observe(el); });
+
+function enviarFormulario() {
+  const v = function(id){ return (document.getElementById(id).value || '').trim(); };
+  const nome = v('nome'), email = v('email');
+  if (!nome || !email) { alert('Por favor, preencha nome e e-mail.'); return; }
+  let msg = 'Olá! Tenho interesse em cotação de frete.\n\n*Nome:* ' + nome + '\n';
+  if (v('empresa')) msg += '*Empresa:* ' + v('empresa') + '\n';
+  msg += '*E-mail:* ' + email + '\n';
+  if (v('telefone')) msg += '*Telefone:* ' + v('telefone') + '\n';
+  if (v('tipo-carga')) msg += '*Carga:* ' + v('tipo-carga') + '\n';
+  if (v('mensagem')) msg += '\n*Mensagem:* ' + v('mensagem');
+  window.open('https://wa.me/5519992663933?text=' + encodeURIComponent(msg), '_blank');
+}
+
+const navSections = document.querySelectorAll('section[id], div[id]');
+const navAnchors = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', function(){
+  let current = '';
+  navSections.forEach(function(s){ if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+  navAnchors.forEach(function(a){ a.style.color = a.getAttribute('href') === ('#' + current) ? 'var(--yellow)' : ''; });
+}, { passive: true });
+
+onScroll();
 </script>
-
-
-      </div><!-- fecha coluna direita -->
-
-    </div><!-- fecha grid principal -->
-  </section>
-
-  <!-- Footer -->
-  <footer class="py-10 bg-slate-900 text-slate-200 border-t">
-    <div class="mx-auto max-w-7xl px-4 grid md:grid-cols-4 gap-8 text-sm mb-8">
-      <div>
-        <div class="font-extrabold text-lg text-white" style="color:var(--brand-yellow)">ChavesLog</div>
-        <p class="mt-2">CNPJ 02.499.966/0001-40</p>
-        <p class="mt-1 text-sm">Transporte rodoviário de granéis há 27 anos</p>
-      </div>
-      <div>
-        <div class="font-semibold mb-3 text-white">Páginas</div>
-        <ul class="space-y-1">
-          <li><a href="#sobre" class="hover:text-white transition">Sobre</a></li>
-          <li><a href="#historia" class="hover:text-white transition">História</a></li>
-          <li><a href="#estrutura" class="hover:text-white transition">Estrutura</a></li>
-          <li><a href="#certificacoes" class="hover:text-white transition">Certificações</a></li>
-          <li><a href="#noticias" class="hover:text-white transition">Notícias</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="font-semibold mb-3 text-white">Contato</div>
-        <ul class="space-y-1">
-          <li><a href="tel:5519992663933" class="hover:text-white transition">(19) 99266-3933</a></li>
-          <li><a href="mailto:operacional@chaveslog.com.br" class="hover:text-white transition">operacional@chaveslog.com.br</a></li>
-          <li><a href="https://wa.me/5519992663933" class="hover:text-white transition">WhatsApp</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="font-semibold mb-3 text-white">Legal</div>
-        <ul class="space-y-1">
-          <li><a href="#" class="hover:text-white transition">Política de Privacidade</a></li>
-          <li><a href="#" class="hover:text-white transition">Termos de Uso</a></li>
-          <li><a href="#" class="hover:text-white transition">LGPD</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="border-t border-slate-700 pt-8 text-center text-xs text-slate-400">
-      © <span id="year"></span> ChavesLog Transportes. Todos os direitos reservados.
-    </div>
-  </footer>
-
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-
-  <!-- Script para carregar notícias dinamicamente -->
-  <script>
-  (async function() {
-    try {
-      const response = await fetch('/noticias.json');
-      const data = await response.json();
-      const container = document.getElementById('noticias-container');
-      
-      const colorMap = {
-        'amber': { from: 'from-amber-400', to: 'to-amber-600', text: 'text-amber-600' },
-        'blue': { from: 'from-blue-400', to: 'to-blue-600', text: 'text-blue-600' },
-        'green': { from: 'from-green-400', to: 'to-green-600', text: 'text-green-600' },
-        'yellow': { from: 'from-yellow-400', to: 'to-yellow-600', text: 'text-yellow-600' },
-        'purple': { from: 'from-purple-400', to: 'to-purple-600', text: 'text-purple-600' },
-        'red': { from: 'from-red-400', to: 'to-red-600', text: 'text-red-600' }
-      };
-
-      container.innerHTML = data.noticias.map(noticia => {
-        const cores = colorMap[noticia.cor];
-        return `
-          <article class="bg-white rounded-2xl overflow-hidden border shadow-sm hover:shadow-md transition card-hover">
-            <div class="h-40 bg-gradient-to-br ${cores.from} ${cores.to} flex items-center justify-center">
-              <div class="text-6xl">${noticia.emoji}</div>
-            </div>
-            <div class="p-6">
-              <div class="text-xs ${cores.text} font-semibold mb-2">${noticia.categoria}</div>
-              <h3 class="font-bold text-lg text-slate-900">${noticia.titulo}</h3>
-              <p class="text-slate-600 text-sm mt-3">${noticia.descricao}</p>
-              <div class="mt-4 pt-4 border-t text-xs text-slate-500">${noticia.data}</div>
-            </div>
-          </article>
-        `;
-      }).join('');
-    } catch (error) {
-      console.error('Erro ao carregar notícias:', error);
-    }
-  })();
-  </script>
 </body>
 </html>
