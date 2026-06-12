@@ -9,7 +9,7 @@ const UA = {
 };
 
 async function buscarDolar() {
-  const r = await fetch('https://economia.awesomeapi.com.br/json/last/USD-BRL');
+  const r = await fetch('https://economia.awesomeapi.com.br/json/last/USD-BRL', { headers: UA });
   if (!r.ok) throw new Error('awesomeapi ' + r.status);
   const d = (await r.json()).USDBRL;
   return {
@@ -92,11 +92,17 @@ export default async function handler(req, res) {
   const c = ok(cepea) || {};
   res.setHeader('Cache-Control', 's-maxage=21600, stale-while-revalidate=86400');
   res.setHeader('Access-Control-Allow-Origin', '*');
-  return res.status(200).json({
+  const saida = {
     dolar: ok(dolar),
     diesel: ok(diesel),
     soja: c.soja || null,
     milho: c.milho || null,
     atualizado: new Date().toISOString()
-  });
+  };
+  if ((req.url || '').includes('debug')) {
+    saida.erros = [dolar, cepea, diesel]
+      .filter((p) => p.status === 'rejected')
+      .map((p) => String(p.reason && p.reason.message ? p.reason.message : p.reason));
+  }
+  return res.status(200).json(saida);
 }
