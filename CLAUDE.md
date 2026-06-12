@@ -54,9 +54,13 @@ Conformidade → Frota → Estrutura (mapa) → Certificações → História/ti
 mensagem WhatsApp) → footer → WhatsApp flutuante.
 
 ## APIs serverless (pasta `api/`, rodam na Vercel)
-- `api/indicadores.js` → JSON com dólar (AwesomeAPI), diesel S10 média nacional
-  (CSV aberto da ANP, ~3,5 MB, semana mais recente) e soja Paranaguá + milho
-  (widget público CEPEA, ids 92 e 77). Cache de borda: 6h.
+- `api/indicadores.js` → JSON com dólar PTAX (API SGS do Banco Central, série 1)
+  e diesel S10 média nacional (CSV aberto da ANP, ~3,5 MB, semana mais recente).
+  Cache de borda: 6h. Aceita `?debug` para listar erros das fontes.
+- **Soja e milho NÃO passam pela API**: o CEPEA bloqueia datacenters (403) e a
+  AwesomeAPI limita IPs da Vercel (429). O widget oficial do CEPEA (ids 92/77)
+  é carregado num iframe invisível no navegador do visitante e os valores são
+  lidos da tabela gerada (ver bloco "Soja e milho" no JS do index.html).
 - `api/noticias.js` → 6 notícias mais recentes dos feeds RSS do Canal Rural e
   G1 Agronegócios (título, link, categoria, fonte, data). Cache de borda: 1h.
 - A seção #noticias começa `display:none` e só aparece se alguma API responder —

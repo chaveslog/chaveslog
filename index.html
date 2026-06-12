@@ -1211,24 +1211,62 @@ if (anoAtual) anoAtual.textContent = new Date().getFullYear();
   function mostrarSecao(){ if (!temConteudo) { temConteudo = true; secao.style.display = ''; } }
   function esc(s){ var d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
 
+  var fmt = function(n, dec){ return n.toLocaleString('pt-BR', { minimumFractionDigits: dec, maximumFractionDigits: dec }); };
+  function addCards(html){
+    document.getElementById('indGrid').insertAdjacentHTML('beforeend', html);
+    document.getElementById('indNote').textContent = 'Fontes: Banco Central (PTAX), ANP e CEPEA/ESALQ-USP. Valores de referência, atualizados automaticamente — não constituem oferta de frete.';
+    mostrarSecao();
+  }
+
   fetch('/api/indicadores').then(function(r){ return r.json(); }).then(function(d){
-    var fmt = function(n, dec){ return n.toLocaleString('pt-BR', { minimumFractionDigits: dec, maximumFractionDigits: dec }); };
     var cards = [];
     if (d.dolar) {
-      var v = d.dolar.variacao || 0;
-      var seta = v >= 0 ? '▲ +' : '▼ ';
-      var cls = v >= 0 ? 'ind-up' : 'ind-down';
-      cards.push('<div class="ind-card"><div class="ind-label">Dólar (USD/BRL)</div><div class="ind-value">R$ ' + fmt(d.dolar.valor, 2) + '</div><div class="ind-sub"><span class="' + cls + '">' + seta + fmt(Math.abs(v), 2) + '%</span> · cotação comercial</div></div>');
+      var varTxt = '';
+      if (d.dolar.variacao !== null && d.dolar.variacao !== undefined) {
+        var v = d.dolar.variacao;
+        varTxt = '<span class="' + (v >= 0 ? 'ind-up' : 'ind-down') + '">' + (v >= 0 ? '▲ +' : '▼ ') + fmt(Math.abs(v), 2) + '%</span> · ';
+      }
+      cards.push('<div class="ind-card"><div class="ind-label">Dólar (USD/BRL)</div><div class="ind-value">R$ ' + fmt(d.dolar.valor, 2) + '</div><div class="ind-sub">' + varTxt + 'PTAX Banco Central · ' + esc(d.dolar.data) + '</div></div>');
     }
     if (d.diesel) cards.push('<div class="ind-card"><div class="ind-label">Diesel S10</div><div class="ind-value">R$ ' + fmt(d.diesel.valor, 2) + '<small>/litro</small></div><div class="ind-sub">Média nacional ANP · semana ' + esc(d.diesel.semana) + '</div></div>');
-    if (d.soja) cards.push('<div class="ind-card"><div class="ind-label">Soja Paranaguá</div><div class="ind-value">R$ ' + fmt(d.soja.valor, 2) + '</div><div class="ind-sub">Saca 60kg · CEPEA/ESALQ · ' + esc(d.soja.data) + '</div></div>');
-    if (d.milho) cards.push('<div class="ind-card"><div class="ind-label">Milho</div><div class="ind-value">R$ ' + fmt(d.milho.valor, 2) + '</div><div class="ind-sub">Saca 60kg · CEPEA/ESALQ · ' + esc(d.milho.data) + '</div></div>');
-    if (cards.length) {
-      document.getElementById('indGrid').innerHTML = cards.join('');
-      document.getElementById('indNote').textContent = 'Fontes: CEPEA/ESALQ-USP, ANP e AwesomeAPI. Valores de referência, atualizados automaticamente — não constituem oferta de frete.';
-      mostrarSecao();
-    }
+    if (cards.length) addCards(cards.join(''));
   }).catch(function(){});
+
+  // Soja e milho: o widget oficial do CEPEA é carregado num iframe invisível
+  // (o CEPEA bloqueia servidores, mas o navegador do visitante é o uso previsto
+  // do widget). Lemos os valores da tabela gerada e montamos os cards.
+  (function(){
+    var iframe = document.createElement('iframe');
+    iframe.style.cssText = 'position:absolute;width:0;height:0;border:0;visibility:hidden;';
+    iframe.setAttribute('aria-hidden', 'true');
+    iframe.setAttribute('title', 'cotações CEPEA');
+    iframe.srcdoc = '<scr' + 'ipt src="https://www.cepea.org.br/br/widgetproduto.js.php?fonte=arial&tamanho=10&largura=400px&corfundo=ffffff&cortexto=333333&corlinha=cccccc&id_indicador%5B%5D=92&id_indicador%5B%5D=77"></scr' + 'ipt>';
+    document.body.appendChild(iframe);
+    var tentativas = 0;
+    var timer = setInterval(function(){
+      tentativas++;
+      var doc = iframe.contentDocument;
+      var linhas = doc ? doc.querySelectorAll('.imagenet-widget-tabela tbody tr') : null;
+      if (linhas && linhas.length) {
+        clearInterval(timer);
+        var cards = [];
+        linhas.forEach(function(tr){
+          var td = tr.querySelectorAll('td');
+          if (td.length < 3) return;
+          var nome = (td[1].querySelector('.maior') || td[1]).textContent.trim();
+          var valor = parseFloat((td[2].querySelector('.maior') || td[2]).textContent.trim().replace(/\./g, '').replace(',', '.'));
+          if (!valor) return;
+          var rotulo = /soja/i.test(nome) ? 'Soja Paranaguá' : (/milho/i.test(nome) ? 'Milho' : nome);
+          cards.push('<div class="ind-card"><div class="ind-label">' + esc(rotulo) + '</div><div class="ind-value">R$ ' + fmt(valor, 2) + '</div><div class="ind-sub">Saca 60kg · CEPEA/ESALQ · ' + esc(td[0].textContent.trim()) + '</div></div>');
+        });
+        iframe.remove();
+        if (cards.length) addCards(cards.join(''));
+      } else if (tentativas > 50) {
+        clearInterval(timer);
+        iframe.remove();
+      }
+    }, 250);
+  })();
 
   fetch('/api/noticias').then(function(r){ return r.json(); }).then(function(d){
     if (!d.noticias || !d.noticias.length) return;

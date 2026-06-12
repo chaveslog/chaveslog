@@ -1,5 +1,8 @@
 // /api/indicadores.js — agrega indicadores de mercado de fontes públicas oficiais.
-// Fontes: AwesomeAPI (dólar), CEPEA/ESALQ-USP (soja e milho), ANP (diesel S10).
+// Fontes: Banco Central (dólar PTAX) e ANP (diesel S10). Soja e milho (CEPEA)
+// são carregados direto no navegador do visitante (ver index.html), pois o
+// CEPEA bloqueia requisições vindas de datacenters (403), assim como a
+// AwesomeAPI limita IPs compartilhados da Vercel (429).
 // O resultado fica em cache na borda da Vercel por 6h (s-maxage), então as
 // fontes são consultadas poucas vezes por dia, independente do tráfego do site.
 
@@ -9,38 +12,21 @@ const UA = {
 };
 
 async function buscarDolar() {
-  const r = await fetch('https://economia.awesomeapi.com.br/json/last/USD-BRL', { headers: UA });
-  if (!r.ok) throw new Error('awesomeapi ' + r.status);
-  const d = (await r.json()).USDBRL;
+  // Série SGS 1 do Banco Central: dólar comercial (venda) PTAX, diário oficial
+  const r = await fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.1/dados/ultimos/2?formato=json', {
+    headers: UA
+  });
+  if (!r.ok) throw new Error('bcb ' + r.status);
+  const serie = await r.json();
+  if (!Array.isArray(serie) || !serie.length) throw new Error('bcb: serie vazia');
+  const hoje = serie[serie.length - 1];
+  const ontem = serie.length > 1 ? serie[serie.length - 2] : null;
+  const valor = parseFloat(hoje.valor);
   return {
-    valor: parseFloat(d.bid),
-    variacao: parseFloat(d.pctChange),
-    data: (d.create_date || '').slice(0, 10)
+    valor,
+    variacao: ontem ? ((valor - parseFloat(ontem.valor)) / parseFloat(ontem.valor)) * 100 : null,
+    data: hoje.data
   };
-}
-
-async function buscarCepea() {
-  // Widget público oficial do CEPEA (id 92 = Soja Paranaguá, id 77 = Milho)
-  const url =
-    'https://www.cepea.org.br/br/widgetproduto.js.php?fonte=arial&tamanho=10&largura=400px&corfundo=ffffff&cortexto=333333&corlinha=cccccc&id_indicador%5B%5D=92&id_indicador%5B%5D=77';
-  const r = await fetch(url, { headers: UA });
-  if (!r.ok) throw new Error('cepea ' + r.status);
-  const html = await r.text();
-  const linhas = html.matchAll(
-    /<tr>\s*<td>([\d/]+)<\/td>\s*<td><span class="maior">([^<]+)<\/span>[\s\S]*?R\$\s*<span class="maior">([\d.,]+)<\/span>/g
-  );
-  const out = {};
-  for (const m of linhas) {
-    const item = {
-      valor: parseFloat(m[3].replace(/\./g, '').replace(',', '.')),
-      unidade: 'sc 60kg',
-      data: m[1]
-    };
-    if (/soja/i.test(m[2])) out.soja = item;
-    else if (/milho/i.test(m[2])) out.milho = item;
-  }
-  if (!out.soja && !out.milho) throw new Error('cepea: nenhuma cotação encontrada');
-  return out;
 }
 
 async function buscarDieselS10() {
@@ -83,24 +69,17 @@ async function buscarDieselS10() {
 }
 
 export default async function handler(req, res) {
-  const [dolar, cepea, diesel] = await Promise.allSettled([
-    buscarDolar(),
-    buscarCepea(),
-    buscarDieselS10()
-  ]);
+  const [dolar, diesel] = await Promise.allSettled([buscarDolar(), buscarDieselS10()]);
   const ok = (p) => (p.status === 'fulfilled' ? p.value : null);
-  const c = ok(cepea) || {};
   res.setHeader('Cache-Control', 's-maxage=21600, stale-while-revalidate=86400');
   res.setHeader('Access-Control-Allow-Origin', '*');
   const saida = {
     dolar: ok(dolar),
     diesel: ok(diesel),
-    soja: c.soja || null,
-    milho: c.milho || null,
     atualizado: new Date().toISOString()
   };
   if ((req.url || '').includes('debug')) {
-    saida.erros = [dolar, cepea, diesel]
+    saida.erros = [dolar, diesel]
       .filter((p) => p.status === 'rejected')
       .map((p) => String(p.reason && p.reason.message ? p.reason.message : p.reason));
   }
