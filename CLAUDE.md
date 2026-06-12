@@ -1,8 +1,11 @@
 # ChavesLog Transportes — Site Institucional
 
 Site single-page da **ChavesLog Transportes** (Chaves & Ardito Ltda.), transportadora
-rodoviária de granéis sólidos com 27 anos de mercado. Objetivo: visual premium,
+rodoviária de granéis sólidos fundada em 1997. Objetivo: visual premium,
 cinematográfico, comparável às maiores transportadoras do setor.
+
+**Anos de empresa são calculados automaticamente** via JS (`[data-anos]`, fundação 1997)
+e o ano do copyright via `#anoAtual` — nunca escrever "27 anos"/"29 anos" fixo no HTML.
 
 ## Stack & Deploy
 - **HTML/CSS/JS puro** (sem framework). Tudo em `index.html`.
@@ -47,11 +50,25 @@ cinematográfico, comparável às maiores transportadoras do setor.
 ## Seções (ordem no index.html)
 navbar → hero → marquee → KPIs → Sobre → pinned narrative → Especialidades →
 Conformidade → Frota → Estrutura (mapa) → Certificações → História/timeline →
-CTA band → Contato (form vira mensagem WhatsApp) → footer → WhatsApp flutuante.
+**Mercado & Notícias (#noticias, automática)** → CTA band → Contato (form vira
+mensagem WhatsApp) → footer → WhatsApp flutuante.
+
+## APIs serverless (pasta `api/`, rodam na Vercel)
+- `api/indicadores.js` → JSON com dólar (AwesomeAPI), diesel S10 média nacional
+  (CSV aberto da ANP, ~3,5 MB, semana mais recente) e soja Paranaguá + milho
+  (widget público CEPEA, ids 92 e 77). Cache de borda: 6h.
+- `api/noticias.js` → 6 notícias mais recentes dos feeds RSS do Canal Rural e
+  G1 Agronegócios (título, link, categoria, fonte, data). Cache de borda: 1h.
+- A seção #noticias começa `display:none` e só aparece se alguma API responder —
+  abrindo o `index.html` localmente (sem Vercel) ela fica oculta, é o esperado.
+- Todas as fontes exigem User-Agent de navegador (gov.br e CEPEA bloqueiam bots).
+- SEO: head tem JSON-LD LocalBusiness + favicon (`img/favicon.svg` e
+  `img/apple-touch-icon.png`).
 
 ## Workflow
 1. Pedir alterações em linguagem natural.
-2. Testar localmente abrindo `index.html` no navegador.
+2. Testar localmente com `node .claude/dev-server.mjs` → http://localhost:8123
+   (serve o site **e** as APIs da pasta `api/`, igual à Vercel).
 3. Publicar: `git add . && git commit -m "..." && git push`
 4. Conferir em chaveslog.com.br após o deploy da Vercel.
 
@@ -59,4 +76,3 @@ CTA band → Contato (form vira mensagem WhatsApp) → footer → WhatsApp flutu
 - Trocar a foto do Volvo por uma sem as fitas azuis de proteção (veículo novo).
 - Conseguir fotos do hero em resolução maior (as atuais vieram do WhatsApp, 1280px).
 - Seção de depoimentos / clientes.
-- Página de notícias (a antiga foi removida).

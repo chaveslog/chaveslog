@@ -4,14 +4,53 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ChavesLog Transportes - Frota de Granéis 100% Rastreada</title>
-<meta name="description" content="ChavesLog Transportes – 27 anos no transporte rodoviário de cargas a granel. Açúcar VHP, Fertilizantes, Soja, Milho, Calcário, Gesso. Frota 100% rastreada, SASSMAQ certificada, conformidade ANTT.">
+<meta name="description" content="ChavesLog Transportes – desde 1997 no transporte rodoviário de cargas a granel. Açúcar VHP, Fertilizantes, Soja, Milho, Calcário, Gesso. Frota 100% rastreada, SASSMAQ certificada, conformidade ANTT.">
 <meta name="keywords" content="transporte granéis, açúcar VHP, fertilizantes, soja, milho, rodocaçamba, bicaçamba, transportadora Nova Odessa, transportadora Americana, ChavesLog">
-<meta property="og:title" content="ChavesLog Transportes - 27 Anos de Experiência">
+<meta property="og:title" content="ChavesLog Transportes - Especialista em Granéis desde 1997">
 <meta property="og:description" content="Especialistas em transporte de granéis sólidos com frota moderna e certificações ambientais.">
 <meta property="og:image" content="https://chaveslog.com.br/img/hero-granel.jpg">
 <meta property="og:url" content="https://chaveslog.com.br">
 <meta property="og:type" content="business.business">
 <link rel="canonical" href="https://chaveslog.com.br">
+<link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://chaveslog.com.br",
+  "name": "ChavesLog Transportes",
+  "description": "Transporte rodoviário de granéis sólidos desde 1997: açúcar VHP, fertilizantes, soja, milho, calcário, gesso, minérios e resíduos industriais. Frota 100% rastreada, conformidade ANTT e certificações ambientais.",
+  "url": "https://chaveslog.com.br",
+  "logo": "https://chaveslog.com.br/img/logo-chaveslog-oficial.png",
+  "image": "https://chaveslog.com.br/img/hero-granel.jpg",
+  "telephone": "+55-19-99266-3933",
+  "email": "operacional@chaveslog.com.br",
+  "foundingDate": "1997",
+  "taxID": "02.499.966/0001-40",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rua Haiti, 15",
+    "addressLocality": "Americana",
+    "addressRegion": "SP",
+    "postalCode": "13465-681",
+    "addressCountry": "BR"
+  },
+  "location": {
+    "@type": "Place",
+    "name": "Pátio Operacional ChavesLog",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Marginal, 95",
+      "addressLocality": "Nova Odessa",
+      "addressRegion": "SP",
+      "postalCode": "13387-790",
+      "addressCountry": "BR"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": -22.768984, "longitude": -47.274638 }
+  }
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -562,6 +601,27 @@ footer { background: var(--dark-2); border-top: 1px solid var(--border); padding
 .footer-bottom-links a { font-size: .76rem; color: rgba(143,168,150,.5); text-decoration: none; transition: color .2s; }
 .footer-bottom-links a:hover { color: var(--gray); }
 
+/* === MERCADO & NOTÍCIAS === */
+#noticias { background: var(--dark-2); }
+.ind-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-bottom: 56px; }
+.ind-card { padding: 26px 24px; border: 1px solid var(--border); border-radius: 6px; background: var(--dark-3); transition: all .3s; }
+.ind-card:hover { border-color: var(--green); transform: translateY(-3px); }
+.ind-label { font-size: .68rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; color: var(--yellow); margin-bottom: 12px; }
+.ind-value { font-family: 'Barlow Condensed', sans-serif; font-size: 2.2rem; font-weight: 900; color: var(--white); line-height: 1; }
+.ind-value small { font-size: .95rem; font-weight: 600; color: var(--gray); margin-left: 4px; }
+.ind-sub { font-size: .72rem; color: var(--gray); margin-top: 10px; line-height: 1.5; }
+.ind-up { color: var(--green-light); font-weight: 700; }
+.ind-down { color: #e05252; font-weight: 700; }
+.news-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.news-card { display: flex; flex-direction: column; padding: 26px; border: 1px solid var(--border); border-radius: 6px; background: var(--dark-3); text-decoration: none; transition: all .3s; }
+.news-card:hover { border-color: var(--green); background: var(--dark-4); transform: translateY(-4px); }
+.news-cat { font-size: .64rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--green-light); margin-bottom: 12px; }
+.news-card h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.18rem; font-weight: 700; color: var(--white); line-height: 1.3; margin-bottom: 16px; flex: 1; }
+.news-meta { display: flex; justify-content: space-between; gap: 10px; font-size: .72rem; color: var(--gray); border-top: 1px solid var(--border); padding-top: 12px; }
+.ind-note { font-size: .7rem; color: rgba(143,168,150,.55); margin-top: 28px; line-height: 1.6; }
+@media (max-width: 1024px) { .ind-grid { grid-template-columns: 1fr 1fr; } .news-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) { .ind-grid { grid-template-columns: 1fr 1fr; gap: 12px; } .news-grid { grid-template-columns: 1fr; } .ind-value { font-size: 1.8rem; } }
+
 /* === FLOATING WHATSAPP === */
 .float-whatsapp { position: fixed; bottom: 28px; right: 28px; z-index: 999; width: 60px; height: 60px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,.5); text-decoration: none; transition: all .25s; animation: floatWA 3s ease-in-out infinite; }
 .float-whatsapp:hover { background: #20ba59; transform: scale(1.1); }
@@ -636,6 +696,7 @@ footer { background: var(--dark-2); border-top: 1px solid var(--border); padding
     <li><a href="#frota">Frota</a></li>
     <li><a href="#certificacoes">Certificações</a></li>
     <li><a href="#historia">História</a></li>
+    <li><a href="#noticias">Notícias</a></li>
     <li><a href="#contato" class="nav-cta">Fale Conosco</a></li>
   </ul>
   <div class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
@@ -646,6 +707,7 @@ footer { background: var(--dark-2); border-top: 1px solid var(--border); padding
   <a href="#frota" onclick="toggleMenu()">Frota</a>
   <a href="#certificacoes" onclick="toggleMenu()">Certificações</a>
   <a href="#historia" onclick="toggleMenu()">História</a>
+  <a href="#noticias" onclick="toggleMenu()">Notícias</a>
   <a href="#contato" onclick="toggleMenu()">Fale Conosco</a>
 </div>
 
@@ -656,7 +718,7 @@ footer { background: var(--dark-2); border-top: 1px solid var(--border); padding
   <div class="hero-content" id="heroContent">
     <div class="hero-badge">Desde 1997 · Nova Odessa/SP</div>
     <h1 class="hero-title">
-      <span class="line"><span>27 anos movendo</span></span>
+      <span class="line"><span><span data-anos>29</span> anos movendo</span></span>
       <span class="line"><span>o <em>agronegócio</em></span></span>
       <span class="line"><span>do Brasil.</span></span>
     </h1>
@@ -674,7 +736,7 @@ footer { background: var(--dark-2); border-top: 1px solid var(--border); padding
   </div>
   <div class="hero-scroll-hint"><div class="scroll-mouse"></div>Role para explorar</div>
   <div class="hero-statbar">
-    <div class="hero-stat"><b><em>27</em></b><span>Anos de mercado</span></div>
+    <div class="hero-stat"><b><em data-anos>29</em></b><span>Anos de mercado</span></div>
     <div class="hero-stat"><b>15.000<em> m²</em></b><span>Pátio próprio</span></div>
     <div class="hero-stat"><b>100<em>%</em></b><span>Frota rastreada</span></div>
     <div class="hero-stat"><b><em>ANTT</em></b><span>Conformidade total</span></div>
@@ -694,7 +756,7 @@ footer { background: var(--dark-2); border-top: 1px solid var(--border); padding
   <div class="kpi-grid">
     <div class="kpi-item">
       <svg class="kpi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-      <div class="kpi-number" data-count="98.7" data-suffix="%"><span>0</span>%</div>
+      <div class="kpi-number" data-count="98.7" data-suffix="%"><span>0%</span></div>
       <div class="kpi-label">OTIF</div><div class="kpi-desc">On Time In Full</div>
     </div>
     <div class="kpi-item">
@@ -734,7 +796,7 @@ footer { background: var(--dark-2); border-top: 1px solid var(--border); padding
     <div class="sobre-visual reveal-scale reveal-d1">
       <div class="sobre-image-wrap">
         <img src="img/sobre.jpg" alt="Frota ChavesLog ao entardecer" onerror="this.src='img/hero-granel.jpg'">
-        <div class="sobre-badge"><strong>27</strong><span>Anos de mercado</span></div>
+        <div class="sobre-badge"><strong data-anos>29</strong><span>Anos de mercado</span></div>
         <div class="sobre-accent"></div>
       </div>
     </div>
@@ -747,7 +809,7 @@ footer { background: var(--dark-2); border-top: 1px solid var(--border); padding
     <div class="pin-bg" id="pinBg"></div>
     <div class="pin-content">
       <div class="pin-step active" data-step="0">
-        <div class="big-num"><em>27</em></div>
+        <div class="big-num"><em data-anos>29</em></div>
         <h3>Anos de estrada</h3>
         <p>Quase três décadas transportando o que move o agronegócio brasileiro, com a mesma exigência do primeiro dia.</p>
       </div>
@@ -853,7 +915,7 @@ footer { background: var(--dark-2); border-top: 1px solid var(--border); padding
         <div class="estrutura-stats">
           <div class="est-stat reveal reveal-d1"><div class="est-stat-num">15K</div><div class="est-stat-label">m² de área total</div></div>
           <div class="est-stat reveal reveal-d2"><div class="est-stat-num">24h</div><div class="est-stat-label">Controle operacional</div></div>
-          <div class="est-stat reveal reveal-d3"><div class="est-stat-num">27</div><div class="est-stat-label">Anos de expertise</div></div>
+          <div class="est-stat reveal reveal-d3"><div class="est-stat-num" data-anos>29</div><div class="est-stat-label">Anos de expertise</div></div>
           <div class="est-stat reveal reveal-d4"><div class="est-stat-num">100%</div><div class="est-stat-label">Frota rastreada</div></div>
         </div>
         <div class="estrutura-items reveal reveal-d2">
@@ -916,6 +978,20 @@ footer { background: var(--dark-2); border-top: 1px solid var(--border); padding
       <div class="mvv-card reveal reveal-d2"><h3>Visão</h3><p>Ser reconhecida nacionalmente como referência em transporte de granéis sólidos, destacando-se pela excelência operacional e responsabilidade socioambiental.</p></div>
       <div class="mvv-card reveal reveal-d3"><h3>Valores</h3><ul><li>Segurança em primeiro lugar</li><li>Ética e transparência</li><li>Respeito às pessoas</li><li>Compromisso com resultados</li><li>Sustentabilidade</li><li>Excelência operacional</li></ul></div>
     </div>
+  </div>
+</section>
+
+<!-- MERCADO & NOTÍCIAS (conteúdo carregado automaticamente via /api) -->
+<section id="noticias" style="display:none;">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag reveal">Mercado & Setor</div>
+      <h2 class="section-title reveal reveal-d1">Indicadores e notícias<br><em>em tempo real.</em></h2>
+      <p class="section-subtitle reveal reveal-d2">Cotações oficiais e as últimas do agronegócio e do transporte — atualizadas automaticamente.</p>
+    </div>
+    <div class="ind-grid" id="indGrid"></div>
+    <div class="news-grid" id="newsGrid"></div>
+    <p class="ind-note" id="indNote"></p>
   </div>
 </section>
 
@@ -992,7 +1068,7 @@ footer { background: var(--dark-2); border-top: 1px solid var(--border); padding
       <div class="footer-brand">
         <img src="img/logo-chaveslog-oficial.png" alt="ChavesLog" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
         <div style="display:none;font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:900;color:#fff;letter-spacing:.05em;margin-bottom:16px;">CHAVES<span style="color:#f0b429;">LOG</span></div>
-        <p>27 anos de excelência no transporte rodoviário de granéis sólidos. Frota rastreada, conformidade ANTT e certificações ambientais.</p>
+        <p><span data-anos>29</span> anos de excelência no transporte rodoviário de granéis sólidos. Frota rastreada, conformidade ANTT e certificações ambientais.</p>
         <p class="footer-cnpj">CNPJ: 02.499.966/0001-40</p>
       </div>
       <div class="footer-col"><h5>Empresa</h5><ul><li><a href="#sobre">Quem Somos</a></li><li><a href="#historia">Nossa História</a></li><li><a href="#estrutura">Estrutura</a></li><li><a href="#certificacoes">Certificações</a></li></ul></div>
@@ -1000,8 +1076,7 @@ footer { background: var(--dark-2); border-top: 1px solid var(--border); padding
       <div class="footer-col"><h5>Contato</h5><ul><li><a href="tel:5519992663933">(19) 99266-3933</a></li><li><a href="mailto:operacional@chaveslog.com.br">E-mail</a></li><li><a href="https://wa.me/5519992663933">WhatsApp</a></li></ul></div>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 ChavesLog Transportes · Todos os direitos reservados.</p>
-      <div class="footer-bottom-links"><a href="#">Privacidade</a><a href="#">Termos</a><a href="#">LGPD</a></div>
+      <p>© <span id="anoAtual">2026</span> ChavesLog Transportes · Todos os direitos reservados.</p>
     </div>
   </div>
 </footer>
@@ -1121,6 +1196,51 @@ window.addEventListener('scroll', function(){
   navSections.forEach(function(s){ if (window.scrollY >= s.offsetTop - 120) current = s.id; });
   navAnchors.forEach(function(a){ a.style.color = a.getAttribute('href') === ('#' + current) ? 'var(--yellow)' : ''; });
 }, { passive: true });
+
+// Anos de empresa e ano do copyright calculados automaticamente (fundação: 1997)
+var anosEmpresa = new Date().getFullYear() - 1997;
+document.querySelectorAll('[data-anos]').forEach(function(el){ el.textContent = anosEmpresa; });
+var anoAtual = document.getElementById('anoAtual');
+if (anoAtual) anoAtual.textContent = new Date().getFullYear();
+
+// Mercado & Notícias: busca dados das APIs e mostra a seção apenas se houver conteúdo
+(function(){
+  var secao = document.getElementById('noticias');
+  var temConteudo = false;
+
+  function mostrarSecao(){ if (!temConteudo) { temConteudo = true; secao.style.display = ''; } }
+  function esc(s){ var d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
+
+  fetch('/api/indicadores').then(function(r){ return r.json(); }).then(function(d){
+    var fmt = function(n, dec){ return n.toLocaleString('pt-BR', { minimumFractionDigits: dec, maximumFractionDigits: dec }); };
+    var cards = [];
+    if (d.dolar) {
+      var v = d.dolar.variacao || 0;
+      var seta = v >= 0 ? '▲ +' : '▼ ';
+      var cls = v >= 0 ? 'ind-up' : 'ind-down';
+      cards.push('<div class="ind-card"><div class="ind-label">Dólar (USD/BRL)</div><div class="ind-value">R$ ' + fmt(d.dolar.valor, 2) + '</div><div class="ind-sub"><span class="' + cls + '">' + seta + fmt(Math.abs(v), 2) + '%</span> · cotação comercial</div></div>');
+    }
+    if (d.diesel) cards.push('<div class="ind-card"><div class="ind-label">Diesel S10</div><div class="ind-value">R$ ' + fmt(d.diesel.valor, 2) + '<small>/litro</small></div><div class="ind-sub">Média nacional ANP · semana ' + esc(d.diesel.semana) + '</div></div>');
+    if (d.soja) cards.push('<div class="ind-card"><div class="ind-label">Soja Paranaguá</div><div class="ind-value">R$ ' + fmt(d.soja.valor, 2) + '</div><div class="ind-sub">Saca 60kg · CEPEA/ESALQ · ' + esc(d.soja.data) + '</div></div>');
+    if (d.milho) cards.push('<div class="ind-card"><div class="ind-label">Milho</div><div class="ind-value">R$ ' + fmt(d.milho.valor, 2) + '</div><div class="ind-sub">Saca 60kg · CEPEA/ESALQ · ' + esc(d.milho.data) + '</div></div>');
+    if (cards.length) {
+      document.getElementById('indGrid').innerHTML = cards.join('');
+      document.getElementById('indNote').textContent = 'Fontes: CEPEA/ESALQ-USP, ANP e AwesomeAPI. Valores de referência, atualizados automaticamente — não constituem oferta de frete.';
+      mostrarSecao();
+    }
+  }).catch(function(){});
+
+  fetch('/api/noticias').then(function(r){ return r.json(); }).then(function(d){
+    if (!d.noticias || !d.noticias.length) return;
+    document.getElementById('newsGrid').innerHTML = d.noticias.map(function(n){
+      return '<a class="news-card" href="' + esc(n.link) + '" target="_blank" rel="noopener">' +
+        '<div class="news-cat">' + esc(n.categoria) + '</div>' +
+        '<h3>' + esc(n.titulo) + '</h3>' +
+        '<div class="news-meta"><span>' + esc(n.data) + '</span><span>' + esc(n.fonte) + ' ↗</span></div></a>';
+    }).join('');
+    mostrarSecao();
+  }).catch(function(){});
+})();
 
 onScroll();
 </script>
