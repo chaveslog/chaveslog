@@ -274,6 +274,8 @@ nav.scrolled .nav-logo img { height: 50px; }
 }
 .btn-primary:hover::before { transform: translateX(0); }
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(26,122,60,.45); }
+.btn-primary:active, .btn-secondary:active, .btn-white:active, .btn-outline-white:active,
+.whatsapp-btn:active, .form-submit:active, .nav-cta:active { transform: scale(.965); transition-duration: .08s; }
 .btn-primary > * { position: relative; z-index: 1; }
 .btn-secondary {
   display: inline-flex; align-items: center; gap: 10px; background: transparent;
@@ -1212,10 +1214,17 @@ if (anoAtual) anoAtual.textContent = new Date().getFullYear();
   function esc(s){ var d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
 
   var fmt = function(n, dec){ return n.toLocaleString('pt-BR', { minimumFractionDigits: dec, maximumFractionDigits: dec }); };
+  function avisarNovos(grid, antes){
+    var novos = Array.prototype.slice.call(grid.children, antes);
+    if (novos.length) window.dispatchEvent(new CustomEvent('cards-renderizados', { detail: novos }));
+  }
   function addCards(html){
-    document.getElementById('indGrid').insertAdjacentHTML('beforeend', html);
+    var grid = document.getElementById('indGrid');
+    var antes = grid.children.length;
+    grid.insertAdjacentHTML('beforeend', html);
     document.getElementById('indNote').textContent = 'Fontes: Banco Central (PTAX), ANP e CEPEA/ESALQ-USP. Valores de referência, atualizados automaticamente — não constituem oferta de frete.';
     mostrarSecao();
+    avisarNovos(grid, antes);
   }
 
   fetch('/api/indicadores').then(function(r){ return r.json(); }).then(function(d){
@@ -1270,17 +1279,83 @@ if (anoAtual) anoAtual.textContent = new Date().getFullYear();
 
   fetch('/api/noticias').then(function(r){ return r.json(); }).then(function(d){
     if (!d.noticias || !d.noticias.length) return;
-    document.getElementById('newsGrid').innerHTML = d.noticias.map(function(n){
+    var grid = document.getElementById('newsGrid');
+    grid.innerHTML = d.noticias.map(function(n){
       return '<a class="news-card" href="' + esc(n.link) + '" target="_blank" rel="noopener">' +
         '<div class="news-cat">' + esc(n.categoria) + '</div>' +
         '<h3>' + esc(n.titulo) + '</h3>' +
         '<div class="news-meta"><span>' + esc(n.data) + '</span><span>' + esc(n.fonte) + ' ↗</span></div></a>';
     }).join('');
     mostrarSecao();
+    avisarNovos(grid, 0);
   }).catch(function(){});
 })();
 
 onScroll();
+</script>
+
+<script type="module">
+// Animações extras com Motion (motion.dev), carregado via CDN.
+// Melhoria progressiva: se o CDN falhar ou o visitante preferir menos
+// movimento, o site continua com as animações CSS originais.
+if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  try {
+    const { animate, inView, stagger } = await import('https://cdn.jsdelivr.net/npm/motion@12/+esm');
+    const MOLA = { type: 'spring', stiffness: 120, damping: 17 };
+
+    // Anima com mola e depois limpa os estilos inline, para não atrapalhar
+    // os efeitos de hover do CSS (que também usam transform)
+    async function entrada(els, opcoes) {
+      const lista = els.length !== undefined ? Array.from(els) : [els];
+      try { await animate(els, { opacity: [0, 1], y: [36, 0], scale: [0.97, 1] }, opcoes); } catch (e) {}
+      lista.forEach(function (el) { el.style.transform = ''; el.style.opacity = ''; });
+    }
+
+    // Entrada em cascata dos grids de cards (substitui o reveal CSS de delay fixo)
+    const GRUPOS = [
+      ['.sobre-pillars', '.pillar'],
+      ['.esp-grid', '.esp-card'],
+      ['.frota-tipo-grid', '.frota-tipo'],
+      ['.frota-features', '.frota-feature'],
+      ['.estrutura-stats', '.est-stat'],
+      ['.cert-grid', '.cert-card'],
+      ['.mvv-grid', '.mvv-card']
+    ];
+    GRUPOS.forEach(function (par) {
+      const grid = document.querySelector(par[0]);
+      if (!grid) return;
+      const cards = grid.querySelectorAll(par[1]);
+      if (!cards.length) return;
+      cards.forEach(function (c) {
+        c.classList.remove('reveal', 'reveal-scale', 'reveal-d1', 'reveal-d2', 'reveal-d3', 'reveal-d4');
+        c.style.opacity = '0';
+      });
+      inView(grid, function () {
+        entrada(cards, Object.assign({}, MOLA, { delay: stagger(0.07) }));
+      }, { amount: 0.15 });
+    });
+
+    // KPIs entram quicando levemente
+    inView('.kpi-strip', function () {
+      entrada(document.querySelectorAll('.kpi-item'), { type: 'spring', stiffness: 180, damping: 14, delay: stagger(0.09) });
+    }, { amount: 0.3 });
+
+    // Cards dinâmicos (indicadores e notícias) animam assim que são renderizados
+    window.addEventListener('cards-renderizados', function (e) {
+      entrada(e.detail, Object.assign({}, MOLA, { delay: stagger(0.06) }));
+    });
+
+    // Botão flutuante do WhatsApp entra com um pulo de mola
+    const wa = document.querySelector('.float-whatsapp');
+    if (wa) {
+      wa.style.opacity = '0';
+      setTimeout(async function () {
+        try { await animate(wa, { opacity: [0, 1], scale: [0, 1] }, { type: 'spring', stiffness: 280, damping: 15 }); } catch (e) {}
+        wa.style.transform = ''; wa.style.opacity = '';
+      }, 900);
+    }
+  } catch (e) { /* sem Motion, o site segue com as animações CSS */ }
+}
 </script>
 </body>
 </html>
