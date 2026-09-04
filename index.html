@@ -78,6 +78,9 @@ body {
   --dark-4: #18231b;
   --border: #1e3024;
 }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--yellow); outline-offset: 3px; border-radius: 3px;
+}
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--dark); }
 ::-webkit-scrollbar-thumb { background: var(--green); border-radius: 3px; }
@@ -389,7 +392,8 @@ section { padding: 110px 5%; position: relative; }
 .sobre-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 36px; }
 .pillar { padding: 22px; border: 1px solid var(--border); border-radius: 6px; background: rgba(255,255,255,.02); transition: all .3s; }
 .pillar:hover { border-color: var(--green); background: rgba(26,122,60,.06); transform: translateY(-3px); }
-.pillar-icon { font-size: 1.5rem; margin-bottom: 10px; }
+.pillar-icon { width: 40px; height: 40px; background: rgba(26,122,60,.15); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: var(--green-light); margin-bottom: 12px; }
+.pillar-icon svg { width: 20px; height: 20px; }
 .pillar h4 { font-family: 'Barlow Condensed', sans-serif; font-size: .88rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--green-light); margin-bottom: 4px; }
 .pillar p { font-size: .82rem; color: var(--gray); line-height: 1.5; margin: 0 !important; }
 .sobre-visual { position: relative; }
@@ -455,8 +459,9 @@ section { padding: 110px 5%; position: relative; }
 .esp-card::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--green), var(--yellow)); transform: scaleX(0); transform-origin: left; transition: transform .4s ease; }
 .esp-card:hover { background: var(--dark-4); transform: translateY(-3px); }
 .esp-card:hover::before { transform: scaleX(1); }
-.esp-icon { font-size: 2.2rem; margin-bottom: 18px; display: block; transition: transform .35s; }
-.esp-card:hover .esp-icon { transform: scale(1.15) rotate(-5deg); }
+.esp-icon { width: 52px; height: 52px; background: rgba(26,122,60,.15); border: 1px solid rgba(43,194,95,.2); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--green-light); margin-bottom: 18px; transition: all .35s; }
+.esp-icon svg { width: 26px; height: 26px; }
+.esp-card:hover .esp-icon { background: rgba(26,122,60,.28); color: var(--yellow); transform: scale(1.08); }
 .esp-card h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.2rem; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--white); margin-bottom: 8px; }
 .esp-card p { font-size: .85rem; color: var(--gray); line-height: 1.6; }
 
@@ -520,7 +525,9 @@ section { padding: 110px 5%; position: relative; }
 .cert-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--green), var(--yellow)); transform: scaleX(0); transition: transform .3s; }
 .cert-card:hover { border-color: rgba(26,122,60,.4); background: var(--dark-4); transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,.4); }
 .cert-card:hover::after { transform: scaleX(1); }
-.cert-badge { width: 54px; height: 54px; background: rgba(26,122,60,.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; color: var(--green-light); font-size: 1.5rem; transition: all .35s; }
+.cert-badge { width: 54px; height: 54px; background: rgba(26,122,60,.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; color: var(--green-light); transition: all .35s; }
+.cert-badge svg { width: 26px; height: 26px; }
+.cert-card:hover .cert-badge svg { color: var(--yellow); }
 .cert-card:hover .cert-badge { background: rgba(26,122,60,.25); transform: scale(1.1); }
 .cert-card h4 { font-family: 'Barlow Condensed', sans-serif; font-size: .98rem; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--white); margin-bottom: 8px; }
 .cert-card p { font-size: .75rem; color: var(--gray); line-height: 1.4; }
@@ -787,15 +794,15 @@ footer { background: var(--dark-2); border-top: 1px solid var(--border); padding
         <p class="section-subtitle reveal reveal-d2">Fundada em 1997 em Americana/SP, a ChavesLog rapidamente se especializou no transporte rodoviário de granéis sólidos, tornando-se referência no setor.</p>
       </div>
       <div class="sobre-pillars">
-        <div class="pillar reveal reveal-d1"><div class="pillar-icon">🏢</div><h4>Sede Própria</h4><p>Pátio de 15.000 m² em Nova Odessa/SP</p></div>
-        <div class="pillar reveal reveal-d2"><div class="pillar-icon">🛡️</div><h4>Conformidade</h4><p>ANTT, piso mínimo, vale-pedágio e seguros</p></div>
-        <div class="pillar reveal reveal-d3"><div class="pillar-icon">📡</div><h4>Tecnologia</h4><p>Frota 100% rastreada em tempo real</p></div>
-        <div class="pillar reveal reveal-d4"><div class="pillar-icon">🌿</div><h4>Certificações</h4><p>SASSMAQ, IBAMA, CETESB e licenças</p></div>
+        <div class="pillar reveal reveal-d1"><div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M9 21v-4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4"/><path d="M8 7h.01M12 7h.01M16 7h.01M8 11h.01M12 11h.01M16 11h.01"/></svg></div><h4>Sede Própria</h4><p>Pátio de 15.000 m² em Nova Odessa/SP</p></div>
+        <div class="pillar reveal reveal-d2"><div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div><h4>Conformidade</h4><p>ANTT, piso mínimo, vale-pedágio e seguros</p></div>
+        <div class="pillar reveal reveal-d3"><div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"/><path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"/><circle cx="12" cy="12" r="2"/><path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"/><path d="M19.1 4.9C23 8.8 23 15.1 19.1 19"/></svg></div><h4>Tecnologia</h4><p>Frota 100% rastreada em tempo real</p></div>
+        <div class="pillar reveal reveal-d4"><div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></div><h4>Certificações</h4><p>SASSMAQ, IBAMA, CETESB e licenças</p></div>
       </div>
     </div>
     <div class="sobre-visual reveal-scale reveal-d1">
       <div class="sobre-image-wrap">
-        <img src="img/sobre.jpg" alt="Frota ChavesLog ao entardecer" onerror="this.src='img/hero-granel.jpg'">
+        <img src="img/sobre.jpg" alt="Frota ChavesLog ao entardecer" loading="lazy" onerror="this.src='img/hero-granel.jpg'">
         <div class="sobre-badge"><strong data-anos>29</strong><span>Anos de mercado</span></div>
         <div class="sobre-accent"></div>
       </div>
@@ -844,12 +851,12 @@ footer { background: var(--dark-2); border-top: 1px solid var(--border); padding
       <p class="section-subtitle reveal reveal-d2" style="margin:16px auto 0;">Granéis sólidos com equipamentos especializados, equipes treinadas e total conformidade regulatória.</p>
     </div>
     <div class="esp-grid">
-      <div class="esp-card reveal reveal-d1"><span class="esp-icon">🍬</span><h3>Açúcar VHP</h3><p>Transporte especializado com rigoroso controle de qualidade, higiene e rastreabilidade total.</p></div>
-      <div class="esp-card reveal reveal-d2"><span class="esp-icon">🌿</span><h3>Fertilizantes</h3><p>Calcário agrícola, gesso e fertilizantes com conformidade ambiental e de segurança.</p></div>
-      <div class="esp-card reveal reveal-d3"><span class="esp-icon">🌾</span><h3>Grãos & Cereais</h3><p>Soja, milho, trigo e outros cereais com total cuidado, higiene e eficiência.</p></div>
-      <div class="esp-card reveal reveal-d1"><span class="esp-icon">⛏️</span><h3>Minérios</h3><p>Minérios e concentrados com estrutura adequada e segurança operacional.</p></div>
-      <div class="esp-card reveal reveal-d2"><span class="esp-icon">♻️</span><h3>Resíduos Industriais</h3><p>Licenças IBAMA e CETESB para transporte conforme legislação ambiental vigente.</p></div>
-      <div class="esp-card reveal reveal-d3"><span class="esp-icon">🔩</span><h3>Matérias-Primas</h3><p>Insumos e matérias-primas para indústria com operações customizadas.</p></div>
+      <div class="esp-card reveal reveal-d1"><span class="esp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></span><h3>Açúcar VHP</h3><p>Transporte especializado com rigoroso controle de qualidade, higiene e rastreabilidade total.</p></div>
+      <div class="esp-card reveal reveal-d2"><span class="esp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></span><h3>Fertilizantes</h3><p>Calcário agrícola, gesso e fertilizantes com conformidade ambiental e de segurança.</p></div>
+      <div class="esp-card reveal reveal-d3"><span class="esp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-3.1.2-4.2 1-4.9 2z"/></svg></span><h3>Grãos & Cereais</h3><p>Soja, milho, trigo e outros cereais com total cuidado, higiene e eficiência.</p></div>
+      <div class="esp-card reveal reveal-d1"><span class="esp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg></span><h3>Minérios</h3><p>Minérios e concentrados com estrutura adequada e segurança operacional.</p></div>
+      <div class="esp-card reveal reveal-d2"><span class="esp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg></span><h3>Resíduos Industriais</h3><p>Licenças IBAMA e CETESB para transporte conforme legislação ambiental vigente.</p></div>
+      <div class="esp-card reveal reveal-d3"><span class="esp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1M12 18h1M7 18h1"/></svg></span><h3>Matérias-Primas</h3><p>Insumos e matérias-primas para indústria com operações customizadas.</p></div>
     </div>
   </div>
 </section>
@@ -895,7 +902,7 @@ footer { background: var(--dark-2); border-top: 1px solid var(--border); padding
         </div>
       </div>
       <div class="frota-image-area reveal-scale reveal-d2">
-        <img src="img/frota-exemplo.jpg" alt="Frota de rodocaçambas e bicaçambas ChavesLog" onerror="this.src='img/hero-granel.jpg'">
+        <img src="img/frota-exemplo.jpg" alt="Frota de rodocaçambas e bicaçambas ChavesLog" loading="lazy" onerror="this.src='img/hero-granel.jpg'">
         <div class="frota-overlay-text"><h3>Pátio Operacional</h3><p>15.000 m² — Nova Odessa/SP</p></div>
       </div>
     </div>
@@ -948,11 +955,11 @@ footer { background: var(--dark-2); border-top: 1px solid var(--border); padding
       <p class="section-subtitle reveal reveal-d2" style="margin:16px auto 0;">Todas as licenças exigidas pela legislação ambiental, regulatória e de segurança.</p>
     </div>
     <div class="cert-grid">
-      <div class="cert-card reveal reveal-d1"><div class="cert-badge">✅</div><h4>SASSMAQ</h4><p>Segurança, Saúde, Meio Ambiente e Qualidade</p></div>
-      <div class="cert-card reveal reveal-d2"><div class="cert-badge">🪖</div><h4>CR Exército</h4><p>Certificação Registral do Exército Brasileiro</p></div>
-      <div class="cert-card reveal reveal-d3"><div class="cert-badge">🔒</div><h4>Polícia Civil</h4><p>Licença para transporte de materiais controlados</p></div>
-      <div class="cert-card reveal reveal-d4"><div class="cert-badge">🌿</div><h4>CETESB</h4><p>Certificado de Dispensa — Ambiental SP</p></div>
-      <div class="cert-card reveal reveal-d4"><div class="cert-badge">🌎</div><h4>IBAMA</h4><p>Instituto Brasileiro do Meio Ambiente</p></div>
+      <div class="cert-card reveal reveal-d1"><div class="cert-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg></div><h4>SASSMAQ</h4><p>Segurança, Saúde, Meio Ambiente e Qualidade</p></div>
+      <div class="cert-card reveal reveal-d2"><div class="cert-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m12 8 1.2 2.4 2.6.4-1.9 1.9.4 2.6-2.3-1.2-2.3 1.2.4-2.6-1.9-1.9 2.6-.4L12 8z"/></svg></div><h4>CR Exército</h4><p>Certificação Registral do Exército Brasileiro</p></div>
+      <div class="cert-card reveal reveal-d3"><div class="cert-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><h4>Polícia Civil</h4><p>Licença para transporte de materiais controlados</p></div>
+      <div class="cert-card reveal reveal-d4"><div class="cert-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></div><h4>CETESB</h4><p>Certificado de Dispensa — Ambiental SP</p></div>
+      <div class="cert-card reveal reveal-d4"><div class="cert-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div><h4>IBAMA</h4><p>Instituto Brasileiro do Meio Ambiente</p></div>
     </div>
   </div>
 </section>
@@ -1041,17 +1048,17 @@ footer { background: var(--dark-2); border-top: 1px solid var(--border); padding
       </div>
       <div class="contato-form reveal reveal-d1">
         <div class="form-row">
-          <div class="form-group"><label>Nome *</label><input type="text" id="nome" placeholder="Seu nome completo"></div>
-          <div class="form-group"><label>Empresa</label><input type="text" id="empresa" placeholder="Razão social"></div>
+          <div class="form-group"><label for="nome">Nome *</label><input type="text" id="nome" name="nome" autocomplete="name" placeholder="Seu nome completo"></div>
+          <div class="form-group"><label for="empresa">Empresa</label><input type="text" id="empresa" name="empresa" autocomplete="organization" placeholder="Razão social"></div>
         </div>
         <div class="form-row">
-          <div class="form-group"><label>E-mail *</label><input type="email" id="email" placeholder="seu@email.com"></div>
-          <div class="form-group"><label>Telefone / WhatsApp</label><input type="tel" id="telefone" placeholder="(19) 9xxxx-xxxx"></div>
+          <div class="form-group"><label for="email">E-mail *</label><input type="email" id="email" name="email" autocomplete="email" placeholder="seu@email.com"></div>
+          <div class="form-group"><label for="telefone">Telefone / WhatsApp</label><input type="tel" id="telefone" name="telefone" autocomplete="tel" placeholder="(19) 9xxxx-xxxx"></div>
         </div>
-        <div class="form-group"><label>Tipo de carga</label>
+        <div class="form-group"><label for="tipo-carga">Tipo de carga</label>
           <select id="tipo-carga"><option value="">Selecione o produto</option><option>Açúcar VHP</option><option>Fertilizantes</option><option>Soja</option><option>Milho</option><option>Trigo</option><option>Calcário Agrícola</option><option>Gesso Agrícola</option><option>Minérios</option><option>Resíduos Industriais</option><option>Outro</option></select>
         </div>
-        <div class="form-group"><label>Mensagem</label><textarea id="mensagem" placeholder="Origem, destino, volume, frequência..."></textarea></div>
+        <div class="form-group"><label for="mensagem">Mensagem</label><textarea id="mensagem" name="mensagem" placeholder="Origem, destino, volume, frequência..."></textarea></div>
         <input class="form-honey" type="text" name="_honey" tabindex="-1" autocomplete="off">
         <button type="button" class="form-submit" onclick="enviarFormulario()">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
