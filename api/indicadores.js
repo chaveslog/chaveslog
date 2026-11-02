@@ -10,11 +10,15 @@ const UA = {
   'User-Agent':
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
 };
+// Teto por fonte: se BCB/ANP travarem, a função responde com o campo null em vez
+// de ficar pendurada até o maxDuration (15 s, ver vercel.json).
+const TIMEOUT_MS = 9000;
 
 async function buscarDolar() {
   // Série SGS 1 do Banco Central: dólar comercial (venda) PTAX, diário oficial
   const r = await fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.1/dados/ultimos/2?formato=json', {
-    headers: UA
+    headers: UA,
+    signal: AbortSignal.timeout(TIMEOUT_MS)
   });
   if (!r.ok) throw new Error('bcb ' + r.status);
   const serie = await r.json();
@@ -34,7 +38,7 @@ async function buscarDieselS10() {
   // Calculamos a média nacional do DIESEL S10 da semana mais recente.
   const url =
     'https://www.gov.br/anp/pt-br/centrais-de-conteudo/dados-abertos/arquivos/shpc/qus/ultimas-4-semanas-diesel-gnv.csv';
-  const r = await fetch(url, { headers: UA });
+  const r = await fetch(url, { headers: UA, signal: AbortSignal.timeout(TIMEOUT_MS) });
   if (!r.ok) throw new Error('anp ' + r.status);
   const texto = await r.text();
   const linhas = texto.split('\n');

@@ -6,6 +6,8 @@ const UA = {
   'User-Agent':
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
 };
+// Teto por feed: um feed lento não segura a resposta (maxDuration 15 s, vercel.json).
+const TIMEOUT_MS = 8000;
 
 const FONTES = [
   { nome: 'Canal Rural', url: 'https://www.canalrural.com.br/feed/' },
@@ -50,7 +52,7 @@ function parseRss(xml, fonte) {
 export default async function handler(req, res) {
   const resultados = await Promise.allSettled(
     FONTES.map(async (f) => {
-      const r = await fetch(f.url, { headers: UA });
+      const r = await fetch(f.url, { headers: UA, signal: AbortSignal.timeout(TIMEOUT_MS) });
       if (!r.ok) throw new Error(f.nome + ' ' + r.status);
       return parseRss(await r.text(), f.nome);
     })

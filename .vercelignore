@@ -1,0 +1,6 @@
+# Arquivos internos que não devem ir para o deploy (a Vercel publica tudo do repo)
+.claude/
+CLAUDE.md
+README.md
+SEGURANCA_*.md
+.git/
